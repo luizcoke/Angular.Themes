@@ -1,0 +1,29 @@
+{
+  "name": "@avanade/theme",
+  "version": "0.0.1",
+  "description": "Avanade theme",
+  "main": "./bundles/theme.umd.js",
+  "module": "./index.js",
+  "typings": "./index.d.ts",
+  "author": "Luiz coke Neto",
+  "license": "MIT",
+  "homepage": "https://github.com/luizcoke/Angular.Themes#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luizcoke/Angular.Themes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/luizcoke/Angular.Themes/issues"
+  },
+  "keywords": [
+    "angular",
+    "typescript",
+    "theme"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^5.0.0",
+    "@angular/core": "^5.0.0",
+    "@angular/router": "^5.0.0",
+    "bootstrap": "^4.0.0-beta.2"
+  }
+}

@@ -1,12 +1,5 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 import { Component, OnInit } from '@angular/core';
-
-import { NbSearchService } from '@nebular/theme';
+import { NbSearchService } from '@avanade/theme';
 
 @Component({
   selector: 'nb-search-test',

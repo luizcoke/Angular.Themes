@@ -166,13 +166,9 @@ const ROLLUP_GLOBALS = {
   'rxjs/add/operator/withLatestFrom': 'Rx.Observable.prototype',
   'rxjs/add/operator/zipAll': 'Rx.Observable.prototype',
   'rxjs/add/operator/zipProto': 'Rx.Observable.prototype',
-
-  // 3rd party dependencies
   '@ng-bootstrap/ng-bootstrap': 'ng-bootstrap.ng-bootstrap',
-
-  // @nebular dependencies
-  '@nebular/theme': 'nb.theme',
-  '@nebular/auth': 'nb.auth',
+  // dependencies
+  '@avanade/theme': 'nb.theme'
 };
 const ROLLUP_COMMON_CONFIG = {
   sourceMap: true,
@@ -192,12 +188,11 @@ gulp.task('copy-sources', copySources);
 gulp.task('default', ['copy-sources']);
 gulp.task('inline-resources', copyResources);
 gulp.task('bundle:umd:theme', bundleUmdTheme);
-gulp.task('bundle:umd:auth', bundleUmdAuth);
-gulp.task('bundle', ['bundle:umd:theme', 'bundle:umd:auth']);
+gulp.task('bundle', ['bundle:umd:theme']);
 gulp.task('bump', bumpVersions);
 
 function bumpVersions() {
-  gulp.src(['./package.json', './src/framework/theme/package.json', './src/framework/auth/package.json'], {base: './'})
+  gulp.src(['./package.json', './src/core/theme/package.json'], {base: './'})
     .pipe(bump({
       version: VERSION
     }))
@@ -205,7 +200,7 @@ function bumpVersions() {
 }
 
 function copySources() {
-  gulp.src('./src/framework/**/*')
+  gulp.src('./src/core/**/*')
     .pipe(gulp.dest(BUILD_DIR))
     .on('end', replaceScssWithCss);
 }
@@ -263,18 +258,6 @@ function bundleUmdTheme() {
   bundle(config);
 }
 
-function bundleUmdAuth() {
-  const config = {
-    src: `${LIB_DIR}/auth/**/*.js`,
-    moduleName: 'nb.auth',
-    entry: `${LIB_DIR}/auth/index.js`,
-    format: 'umd',
-    output: 'auth.umd.js',
-    dest: `${LIB_DIR}/auth/bundles`,
-  };
-
-  bundle(config);
-}
 
 function bundle(config) {
   gulp.src(config.src)
@@ -291,7 +274,7 @@ gulp.task('generate-doc-json', generateDocJson);
 
 function generateDocJson() {
   return gulp
-    .src(['src/framework/**/*.ts', '!src/framework/theme/**/node_modules{,/**}'])
+    .src(['src/core/**/*.ts', '!src/core/theme/**/node_modules{,/**}'])
     .pipe(typedoc({
       module: 'commonjs',
       target: 'ES6',

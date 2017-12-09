@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "nebular"
+    "name": "avanade"
   },
   "apps": [
     {
@@ -71,8 +71,7 @@
       "outDir": "docs/dist",
       "assets": [
         "assets",
-        "favicon.ico",
-        "favicon.png"
+        "favicon.ico"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -122,12 +121,6 @@
     },
     {
       "project": "e2e/tsconfig.e2e.json"
-    },
-    {
-      "project": "docs/tsconfig.spec.json"
-    },
-    {
-      "project": "docs/tsconfig.app.json"
     }
   ],
   "test": {

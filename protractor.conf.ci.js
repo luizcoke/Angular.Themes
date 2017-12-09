@@ -16,8 +16,8 @@ exports.config = {
   commonCapabilities: {
     'browserstack.user': process.env.BROWSERSTACK_USERNAME,
     'browserstack.key': process.env.BROWSERSTACK_ACCESS_KEY,
-    'build': '@nebular/theme',
-    'name': '@nebular/theme',
+    'build': '@avanade/theme',
+    'name': '@avanade/theme',
     'browserstack.local': true,
     'browserstack.debug': true,
     'browserName': 'chrome',

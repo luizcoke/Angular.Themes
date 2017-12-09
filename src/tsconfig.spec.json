@@ -10,8 +10,8 @@
       "node"
     ],
     "paths": {
-      "@nebular/*": [
-        "./framework/*"
+      "@avanade/*": [
+        "./core/*"
       ]
     }
   },

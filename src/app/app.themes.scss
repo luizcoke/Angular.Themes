@@ -14,8 +14,7 @@
 //}
 
 
-@import '~@nebular/theme/styles/all';
-@import '~@nebular/auth/styles/all';
+@import '~@avanade/theme/styles/all';
 
 $nb-themes: nb-register-theme((
   background-inverse: #5f1eff,
@@ -26,7 +25,7 @@ $nb-themes: nb-register-theme((
   radius: 0,
   color-primary: red,
 
-), blue, cosmic);
+), blue, go-orange);
 
 $nb-themes: nb-register-theme((
   header-foreground: #76ff81,
@@ -35,5 +34,4 @@ $nb-themes: nb-register-theme((
 
 @include nb-install() {
   @include nb-theme-global();
-  @include nb-auth-global();
 };

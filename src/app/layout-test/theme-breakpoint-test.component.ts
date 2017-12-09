@@ -6,7 +6,7 @@
 
 import { Component } from '@angular/core';
 
-import { NbMediaBreakpointsService, NbThemeService } from '@nebular/theme';
+import { NbMediaBreakpointsService, NbThemeService } from '@avanade/theme';
 
 @Component({
   selector: 'nb-breakpoint-test',

@@ -6,8 +6,8 @@
     "module": "es2015",
     "types": [],
     "paths": {
-      "@nebular/*": [
-        "./framework/*"
+      "@avanade/*": [
+        "./core/*"
       ]
     }
   },

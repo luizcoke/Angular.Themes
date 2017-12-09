@@ -6,7 +6,7 @@
 
 import { Component } from '@angular/core';
 
-import { NbThemeService } from '@nebular/theme';
+import { NbThemeService } from '@avanade/theme';
 
 @Component({
   selector: 'nb-dynamic-to-add',

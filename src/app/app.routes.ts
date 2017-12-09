@@ -40,15 +40,6 @@ import { NbSidebarTestComponent } from './sidebar-test/sidebar-test.component';
 import { NbTabsetTestComponent } from './tabset-test/tabset-test.component';
 import { NbUserTestComponent } from './user-test/user-test.component';
 import { NbCardTestComponent } from './card-test/card-test.component';
-import {
-  NbAuthComponent,
-  NbLoginComponent,
-  NbRegisterComponent,
-  NbLogoutComponent,
-  NbRequestPasswordComponent,
-  NbResetPasswordComponent,
-} from '@nebular/auth';
-import { AuthGuard } from './auth-guard.service';
 
 export const routes: Routes = [
   {
@@ -61,7 +52,6 @@ export const routes: Routes = [
   },
   {
     path: 'restricted-route',
-    canActivate: [AuthGuard],
     component: NbLayoutTestComponent,
   },
   {
@@ -191,36 +181,6 @@ export const routes: Routes = [
   {
     path: 'user',
     component: NbUserTestComponent,
-  },
-  {
-    path: 'auth',
-    component: NbAuthComponent,
-    children: [
-      {
-        path: '',
-        component: NbLoginComponent,
-      },
-      {
-        path: 'login',
-        component: NbLoginComponent,
-      },
-      {
-        path: 'register',
-        component: NbRegisterComponent,
-      },
-      {
-        path: 'logout',
-        component: NbLogoutComponent,
-      },
-      {
-        path: 'request-password',
-        component: NbRequestPasswordComponent,
-      },
-      {
-        path: 'reset-password',
-        component: NbResetPasswordComponent,
-      },
-    ],
   },
   {
     path: 'search',

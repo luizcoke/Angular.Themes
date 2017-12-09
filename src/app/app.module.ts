@@ -1,14 +1,11 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppComponent } from './app.component';
+import { routes } from './app.routes';
 
 import {
   NbActionsModule,
@@ -22,18 +19,8 @@ import {
   NbTabsetModule,
   NbThemeModule,
   NbUserModule,
-} from '@nebular/theme';
+} from '@avanade/theme';
 
-import {
-  NB_AUTH_TOKEN_WRAPPER_TOKEN,
-  NbAuthJWTToken,
-  NbAuthModule,
-  NbDummyAuthProvider,
-  NbEmailPassAuthProvider,
-  NbAuthJWTInterceptor,
-} from '@nebular/auth';
-
-import { NbAppComponent } from './app.component';
 import { NbLayoutTestComponent } from './layout-test/layout-test.component';
 import { NbLayoutHeaderTestComponent } from './layout-test/layout-header-test.component';
 import { NbLayoutFooterTestComponent } from './layout-test/layout-footer-test.component';
@@ -67,17 +54,13 @@ import { NbDynamicToAddComponent, NbThemeDynamicTestComponent } from './layout-t
 import { NbActionsTestComponent } from './actions-test/actions-test.component';
 import { NbBootstrapTestComponent } from './bootstrap-test/bootstrap-test.component';
 
-import { routes } from './app.routes';
-
 import { NbSearchTestComponent } from './search-test/search-test.component';
 import { NbFormsTestComponent } from './forms-test/forms-test.component';
 
 import { NbCardTestComponent } from './card-test/card-test.component';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthGuard } from './auth-guard.service';
 
 const NB_TEST_COMPONENTS = [
-  NbAppComponent,
+  AppComponent,
   NbCardTestComponent,
   NbLayoutTestComponent,
   NbLayoutHeaderTestComponent,
@@ -128,53 +111,6 @@ const NB_TEST_COMPONENTS = [
     NbUserModule,
     NbSearchModule,
     NbActionsModule,
-    NbAuthModule.forRoot({
-      forms: {
-        login: {
-          redirectDelay: 3000,
-        },
-      },
-      providers: {
-        //
-        // email: {
-        //   service: NbDummyAuthProvider,
-        //   config: {
-        //     alwaysFail: true,
-        //     delay: 1000,
-        //   },
-        // },
-        email: {
-          service: NbEmailPassAuthProvider,
-          config: {
-            login: {
-              endpoint: 'http://localhost:4400/api/auth/login',
-            },
-            register: {
-              endpoint: 'http://localhost:4400/api/auth/register',
-            },
-            logout: {
-              endpoint: 'http://localhost:4400/api/auth/logout',
-              redirect: {
-                success: '/auth/login',
-                failure: '/auth/login',
-              },
-            },
-            requestPass: {
-              endpoint: 'http://localhost:4400/api/auth/request-pass',
-              redirect: {
-                success: '/auth/reset-password',
-              },
-            },
-            resetPass: {
-              endpoint: 'http://localhost:4400/api/auth/reset-pass',
-              redirect: {
-                success: '/auth/login',
-              },
-            },
-          },
-        },
-      },
-    }),
   ],
   declarations: [
     ...NB_TEST_COMPONENTS,
@@ -182,12 +118,6 @@ const NB_TEST_COMPONENTS = [
   entryComponents: [
     NbDynamicToAddComponent,
   ],
-  providers: [
-    AuthGuard,
-    { provide: NB_AUTH_TOKEN_WRAPPER_TOKEN, useClass: NbAuthJWTToken },
-    { provide: HTTP_INTERCEPTORS, useClass: NbAuthJWTInterceptor, multi: true },
-  ],
-  bootstrap: [NbAppComponent],
+  bootstrap: [AppComponent],
 })
-export class NbAppModule {
-}
+export class AppModule { }
