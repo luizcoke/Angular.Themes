@@ -1,9 +1,3 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
@@ -26,7 +20,7 @@ export class NbSidebarService {
    *
    * @returns Observable<{ compact: boolean, tag: string }>
    */
-  onToggle(): Observable<{ compact: boolean, tag: string }> {
+  onToggle(): Observable<any> {
     return this.toggle$.publish().refCount();
   }
 
@@ -34,7 +28,7 @@ export class NbSidebarService {
    * Subscribe to expand events
    * @returns Observable<{ tag: string }>
    */
-  onExpand(): Observable<{ tag: string }> {
+  onExpand(): Observable<any> {
     return this.expand$.publish().refCount();
   }
 
@@ -42,7 +36,7 @@ export class NbSidebarService {
    * Subscribe to collapse evens
    * @returns Observable<{ tag: string }>
    */
-  onCollapse(): Observable<{ tag: string }> {
+  onCollapse(): Observable<any> {
     return this.collapse$.publish().refCount();
   }
 

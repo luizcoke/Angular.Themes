@@ -1,9 +1,3 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 import { Routes } from '@angular/router';
 import { NbActionsTestComponent } from './actions-test/actions-test.component';
 import { NbBootstrapTestComponent } from './bootstrap-test/bootstrap-test.component';

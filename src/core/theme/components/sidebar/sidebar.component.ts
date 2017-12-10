@@ -1,9 +1,3 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 import { Component, HostBinding, Input, OnInit, OnDestroy, ElementRef } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 

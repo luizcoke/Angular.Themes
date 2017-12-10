@@ -1,9 +1,3 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 import { Injectable, Inject } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
@@ -116,27 +110,27 @@ export class NbMenuService {
    * @param {string} tag
    * @returns {Observable<{tag: string; item: NbMenuItem}>}
    */
-  getSelectedItem(tag?: string): Observable<{ tag: string; item: NbMenuItem }> {
-    const listener = new BehaviorSubject<{ tag: string; item: NbMenuItem }>(null);
+  getSelectedItem(tag?: string): Observable<any> {
+    const listener = new BehaviorSubject<{}>(null);
 
     getSelectedItem$.next({ tag, listener });
 
     return listener.asObservable();
   }
 
-  onItemClick(): Observable<{ tag: string; item: NbMenuItem }> {
+  onItemClick(): Observable<any> {
     return itemClick$.publish().refCount();
   }
 
-  onItemSelect(): Observable<{ tag: string; item: NbMenuItem }> {
+  onItemSelect(): Observable<any> {
     return itemSelect$.publish().refCount();
   }
 
-  onItemHover(): Observable<{ tag: string; item: NbMenuItem }> {
+  onItemHover(): Observable<any> {
     return itemHover$.publish().refCount();
   }
 
-  onSubmenuToggle(): Observable<{ tag: string; item: NbMenuItem }> {
+  onSubmenuToggle(): Observable<any> {
     return submenuToggle$.publish().refCount();
   }
 }
@@ -166,32 +160,32 @@ export class NbMenuInternalService {
     items.forEach(i => this.collapseItem(i, except));
   }
 
-  onAddItem(): Observable<{ tag: string; items: NbMenuItem[] }> {
+  onAddItem(): Observable<any> {
     return addItems$.publish().refCount();
   }
 
-  onNavigateHome(): Observable<{ tag: string }> {
+  onNavigateHome(): Observable<any> {
     return navigateHome$.publish().refCount();
   }
 
-  onGetSelectedItem(): Observable<{ tag: string; listener: BehaviorSubject<{ tag: string; item: NbMenuItem }> }> {
+  onGetSelectedItem(): Observable<any> {
     return getSelectedItem$.publish().refCount();
   }
 
   itemHover(item: NbMenuItem, tag?: string) {
-    itemHover$.next({tag, item});
+    itemHover$.next({ tag, item });
   }
 
   submenuToggle(item: NbMenuItem, tag?: string) {
-    submenuToggle$.next({tag, item});
+    submenuToggle$.next({ tag, item });
   }
 
   itemSelect(item: NbMenuItem, tag?: string) {
-    itemSelect$.next({tag, item});
+    itemSelect$.next({ tag, item });
   }
 
   itemClick(item: NbMenuItem, tag?: string) {
-    itemClick$.next({tag, item});
+    itemClick$.next({ tag, item });
   }
 
   private resetItem(item: NbMenuItem) {
