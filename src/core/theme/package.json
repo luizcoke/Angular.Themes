@@ -1,6 +1,6 @@
 {
   "name": "@avanade/theme",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Avanade theme",
   "main": "./bundles/theme.umd.js",
   "module": "./index.js",

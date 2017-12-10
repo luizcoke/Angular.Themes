@@ -1,9 +1,3 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
@@ -49,7 +43,7 @@ export class NbSearchService {
    * Subscribe to 'activate' event
    * @returns Observable<{searchType: string; tag?: string}>
    */
-  onSearchActivate(): Observable<{ searchType: string, tag?: string }> {
+  onSearchActivate(): Observable<any> {
     return this.searchActivations$.share();
   }
 
@@ -57,7 +51,7 @@ export class NbSearchService {
    * Subscribe to 'deactivate' event
    * @returns Observable<{searchType: string; tag?: string}>
    */
-  onSearchDeactivate(): Observable<{ searchType: string, tag?: string }> {
+  onSearchDeactivate(): Observable<any> {
     return this.searchDeactivations$.share();
   }
 
@@ -65,7 +59,7 @@ export class NbSearchService {
    * Subscribe to 'submit' event (when submit button clicked)
    * @returns Observable<{term: string; tag?: string}>
    */
-  onSearchSubmit(): Observable<{ term: string, tag?: string }> {
+  onSearchSubmit(): Observable<any> {
     return this.searchSubmittings$.share();
   }
 }
