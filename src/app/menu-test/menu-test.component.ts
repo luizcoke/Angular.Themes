@@ -1,9 +1,3 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import 'rxjs/add/operator/takeWhile';
 import { NbMenuService, NbMenuItem } from '@avanade/theme';

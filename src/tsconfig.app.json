@@ -7,7 +7,7 @@
     "types": [],
     "paths": {
       "@avanade/*": [
-        "./core/*"
+        "./@core/*"
       ]
     }
   },

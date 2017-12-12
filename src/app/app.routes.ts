@@ -45,10 +45,6 @@ export const routes: Routes = [
     component: NbLayoutTestComponent,
   },
   {
-    path: 'restricted-route',
-    component: NbLayoutTestComponent,
-  },
-  {
     path: 'layout/header',
     component: NbLayoutHeaderTestComponent,
   },
