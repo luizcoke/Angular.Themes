@@ -14,13 +14,13 @@ import { Component } from '@angular/core';
 
       <layout-header></layout-header>
 
-      <nb-sidebar>
+      <sidebar-layout>
         Left
-      </nb-sidebar>
+      </sidebar-layout>
 
-      <nb-sidebar right fixed>
+      <sidebar-layout right fixed>
         Right
-      </nb-sidebar>
+      </sidebar-layout>
 
       <layout-footer></layout-footer>
 

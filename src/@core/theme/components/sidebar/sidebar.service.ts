@@ -9,7 +9,7 @@ import 'rxjs/add/operator/publish';
  * Root module service to control the sidebar from any part of the app.
  */
 @Injectable()
-export class NbSidebarService {
+export class SidebarService {
 
   private toggle$ = new Subject();
   private expand$ = new Subject();

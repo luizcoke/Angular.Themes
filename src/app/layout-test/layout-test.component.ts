@@ -1,9 +1,3 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 import { Component } from '@angular/core';
 
 @Component({
@@ -25,7 +19,7 @@ import { Component } from '@angular/core';
   template: `
     <layout-page id="layout-fluid">
       <layout-header fixed>
-        <a href="#" class="navbar-brand">Akveo</a>
+        <a href="#" class="navbar-brand">App</a>
       </layout-header>
 
       <layout-column left>
@@ -42,13 +36,13 @@ import { Component } from '@angular/core';
       </layout-column>
 
       <layout-footer>
-        &copy; Akveo 2017
+        &copy; footer
       </layout-footer>
     </layout-page>
 
     <layout-page center id="layout-center">
       <layout-header fixed>
-        <a href="#" class="navbar-brand">Akveo</a>
+        <a href="#" class="navbar-brand">App</a>
       </layout-header>
 
       <layout-column left>
@@ -65,7 +59,7 @@ import { Component } from '@angular/core';
       </layout-column>
 
       <layout-footer fixed>
-        &copy; Akveo 2017
+        &copy; footer
       </layout-footer>
     </layout-page>
 `,

@@ -11,13 +11,13 @@ import { Component } from '@angular/core';
   ],
   template: `
     <layout-page>
-      <nb-sidebar>
+      <sidebar-layout>
         Left
-      </nb-sidebar>
+      </sidebar-layout>
 
-      <nb-sidebar right>
+      <sidebar-layout right>
         Right
-      </nb-sidebar>
+      </sidebar-layout>
     </layout-page>
 `,
 })

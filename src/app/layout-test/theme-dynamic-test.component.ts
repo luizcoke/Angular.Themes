@@ -21,9 +21,9 @@ export class NbDynamicToAddComponent {}
         <button id="clear-dynamic" (click)="clearDynamicComponents()">Clear Dynamic Copmonents</button>
       </layout-header>
 
-      <nb-sidebar right>
+      <sidebar-layout right>
           Sidebar content
-      </nb-sidebar>
+      </sidebar-layout>
 
       <layout-column>
         <box>

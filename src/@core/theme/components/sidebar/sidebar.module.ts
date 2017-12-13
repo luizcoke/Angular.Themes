@@ -3,21 +3,21 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { NbSharedModule } from '../shared/shared.module';
 
 import {
-  NbSidebarComponent,
-  NbSidebarFooterComponent,
-  NbSidebarHeaderComponent,
+  SidebarComponent,
+  SidebarFooterComponent,
+  SidebarHeaderComponent,
 } from './sidebar.component';
 
-import { NbSidebarService } from './sidebar.service';
+import { SidebarService } from './sidebar.service';
 
-const NB_SIDEBAR_COMPONENTS = [
-  NbSidebarComponent,
-  NbSidebarFooterComponent,
-  NbSidebarHeaderComponent,
+const SIDEBAR_COMPONENTS = [
+  SidebarHeaderComponent,
+  SidebarComponent,
+  SidebarFooterComponent
 ];
 
-const NB_SIDEBAR_PROVIDERS = [
-  NbSidebarService,
+const SIDEBAR_PROVIDERS = [
+  SidebarService
 ];
 
 @NgModule({
@@ -25,10 +25,10 @@ const NB_SIDEBAR_PROVIDERS = [
     NbSharedModule,
   ],
   declarations: [
-    ...NB_SIDEBAR_COMPONENTS,
+    SIDEBAR_COMPONENTS,
   ],
   exports: [
-    ...NB_SIDEBAR_COMPONENTS,
+    SIDEBAR_COMPONENTS,
   ],
 })
 export class NbSidebarModule {
@@ -36,7 +36,7 @@ export class NbSidebarModule {
     return <ModuleWithProviders>{
       ngModule: NbSidebarModule,
       providers: [
-        ...NB_SIDEBAR_PROVIDERS,
+        SIDEBAR_PROVIDERS
       ],
     };
   }

@@ -103,7 +103,7 @@ import { NbSpinnerService } from '../../services/spinner.service';
       <div class="layout">
         <ng-content select="layout-header"></ng-content>
         <div class="layout-container">
-          <ng-content select="nb-sidebar"></ng-content>
+          <ng-content select="sidebar-layout"></ng-content>
           <div class="content" [class.center]="centerValue">
             <div class="columns">
               <ng-content select="layout-column"></ng-content>

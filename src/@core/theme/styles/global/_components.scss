@@ -14,8 +14,8 @@
 
   @include layout-page-theme();
   @include box-theme();
+  @include sidebar-theme();
   
-  @include nb-sidebar-theme();
   @include nb-tabset-theme();
   @include nb-route-tabset-theme();
   @include nb-menu-theme();

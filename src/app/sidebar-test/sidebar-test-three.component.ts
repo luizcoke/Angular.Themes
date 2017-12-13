@@ -14,13 +14,13 @@ import { Component } from '@angular/core';
 
       <layout-header></layout-header>
 
-      <nb-sidebar state="collapsed">
+      <sidebar-layout state="collapsed">
         Left
-      </nb-sidebar>
+      </sidebar-layout>
 
-      <nb-sidebar state="compacted" fixed right>
+      <sidebar-layout state="compacted" fixed right>
         Right
-      </nb-sidebar>
+      </sidebar-layout>
 
       <layout-footer></layout-footer>
 

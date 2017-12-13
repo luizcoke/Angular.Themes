@@ -29,7 +29,7 @@
     -ms-flex: 1 1 auto;
     flex-direction: row;
 
-    /deep/ nb-sidebar {
+    /deep/ sidebar-layout {
       order: 0;
 
       &.right {

@@ -8,12 +8,12 @@ import { NbThemeService } from '@avanade/theme';
       <layout-header fixed>
         <a href="#" class="navbar-brand">App</a>
       </layout-header>
-      <nb-sidebar right>
+      <sidebar-layout right>
           <p>Sidebar content</p>
           <select id="change-theme" [(ngModel)]="currentTheme" (ngModelChange)="onChange($event)">
             <option *ngFor="let t of themes" [ngValue]="t">{{t}}</option>
           </select>
-      </nb-sidebar>
+      </sidebar-layout>
 
       <layout-column>
         <box>

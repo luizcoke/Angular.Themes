@@ -1,10 +1,9 @@
 import { Component, HostBinding, Input, OnInit, OnDestroy, ElementRef } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-
 import { convertToBoolProperty } from '../helpers';
 import { NbThemeService } from '../../services/theme.service';
 import { NbMediaBreakpoint } from '../../services/breakpoints.service';
-import { NbSidebarService } from './sidebar.service';
+import { SidebarService } from './sidebar.service';
 
 
 /**
@@ -14,12 +13,12 @@ import { NbSidebarService } from './sidebar.service';
  * placed at the very top of the sidebar outside of the scroll area.
  */
 @Component({
-  selector: 'nb-sidebar-header',
+  selector: 'sidebar-header',
   template: `
     <ng-content></ng-content>
   `,
 })
-export class NbSidebarHeaderComponent {
+export class SidebarHeaderComponent {
 }
 
 /**
@@ -29,12 +28,12 @@ export class NbSidebarHeaderComponent {
  * placed at the very bottom of the sidebar outside of the scroll area.
  */
 @Component({
-  selector: 'nb-sidebar-footer',
+  selector: 'sidebar-footer',
   template: `
     <ng-content></ng-content>
   `,
 })
-export class NbSidebarFooterComponent {
+export class SidebarFooterComponent {
 }
 
 /**
@@ -50,23 +49,23 @@ export class NbSidebarFooterComponent {
  *
  * @example Minimal sidebar example
  * ```
- * <nb-sidebar>
- *   Sidebar content.
- * </nb-sidebar>
+ * <sidebar-layout>
+ *   Sidebar content
+ * <sidebar-layout>
  * ```
  *
  * @example Example of fixed sidebar located on the left side, initially collapsed.
  *
  * ```
- * <nb-sidebar left fixed state="collapsed">
- *  <nb-sidebar-header>Header</nb-sidebar-header>
- *  <nb-sidebar-content>
- *    Menu or another component here
- *  </nb-sidebar-content>
- *  <nb-sidebar-footer>
- *    Footer components here
- *  </nb-sidebar-footer>
- * </nb-sidebar>
+ * <sidebar-layout left fixed state="collapsed">
+ *  <sidebar-header>Header</nb-sidebar-header>
+ *  <sidebar-content>
+ *    Menu links
+ *  </sidebar-content>
+ *  <sidebar-footer>
+ *    Footer components
+ *  </sidebar-footer>
+ * </sidebar-layout>
  * ```
  *
  * @styles
@@ -85,19 +84,19 @@ export class NbSidebarFooterComponent {
  *
  */
 @Component({
-  selector: 'nb-sidebar',
+  selector: 'sidebar-layout',
   styleUrls: ['./sidebar.component.scss'],
   template: `
     <div class="main-container">
-      <ng-content select="nb-sidebar-header"></ng-content>
+      <ng-content select="sidebar-header"></ng-content>
       <div class="scrollable" (click)="onClick($event)">
         <ng-content></ng-content>
       </div>
-      <ng-content select="nb-sidebar-footer"></ng-content>
+      <ng-content select="sidebar-footer"></ng-content>
     </div>
   `,
 })
-export class NbSidebarComponent implements OnInit, OnDestroy {
+export class SidebarComponent implements OnInit, OnDestroy {
 
   static readonly STATE_EXPANDED: string = 'expanded';
   static readonly STATE_COLLAPSED: string = 'collapsed';
@@ -117,15 +116,15 @@ export class NbSidebarComponent implements OnInit, OnDestroy {
   // TODO: rename stateValue to state (take a look to the card component)
   @HostBinding('class.expanded')
   get expanded() {
-    return this.stateValue === NbSidebarComponent.STATE_EXPANDED;
+    return this.stateValue === SidebarComponent.STATE_EXPANDED;
   }
   @HostBinding('class.collapsed')
   get collapsed() {
-    return this.stateValue === NbSidebarComponent.STATE_COLLAPSED;
+    return this.stateValue === SidebarComponent.STATE_COLLAPSED;
   }
   @HostBinding('class.compacted')
   get compacted() {
-    return this.stateValue === NbSidebarComponent.STATE_COMPACTED;
+    return this.stateValue === SidebarComponent.STATE_COMPACTED;
   }
 
   /**
@@ -188,9 +187,9 @@ export class NbSidebarComponent implements OnInit, OnDestroy {
   private expandSubscription: Subscription;
   private collapseSubscription: Subscription;
   private mediaQuerySubscription: Subscription;
-  private responsiveState = NbSidebarComponent.RESPONSIVE_STATE_PC;
+  private responsiveState = SidebarComponent.RESPONSIVE_STATE_PC;
 
-  constructor(private sidebarService: NbSidebarService,
+  constructor(private sidebarService: SidebarService,
               private themeService: NbThemeService,
               private element: ElementRef) {
   }
@@ -246,21 +245,21 @@ export class NbSidebarComponent implements OnInit, OnDestroy {
    * Collapses the sidebar
    */
   collapse() {
-    this.state = NbSidebarComponent.STATE_COLLAPSED;
+    this.state = SidebarComponent.STATE_COLLAPSED;
   }
 
   /**
    * Expands the sidebar
    */
   expand() {
-    this.state = NbSidebarComponent.STATE_EXPANDED;
+    this.state = SidebarComponent.STATE_EXPANDED;
   }
 
   /**
    * Compacts the sidebar (minimizes)
    */
   compact() {
-    this.state = NbSidebarComponent.STATE_COMPACTED;
+    this.state = SidebarComponent.STATE_COMPACTED;
   }
 
   /**
@@ -276,18 +275,18 @@ export class NbSidebarComponent implements OnInit, OnDestroy {
    */
   toggle(compact: boolean = false) {
     if (this.responsiveEnabled()) {
-      if (this.responsiveState === NbSidebarComponent.RESPONSIVE_STATE_MOBILE) {
+      if (this.responsiveState === SidebarComponent.RESPONSIVE_STATE_MOBILE) {
         compact = false;
       }
     }
 
-    const closedStates = [NbSidebarComponent.STATE_COMPACTED, NbSidebarComponent.STATE_COLLAPSED];
+    const closedStates = [SidebarComponent.STATE_COMPACTED, SidebarComponent.STATE_COLLAPSED];
     if (compact) {
       this.state = closedStates.indexOf(this.stateValue) >= 0 ?
-        NbSidebarComponent.STATE_EXPANDED : NbSidebarComponent.STATE_COMPACTED;
+        SidebarComponent.STATE_EXPANDED : SidebarComponent.STATE_COMPACTED;
     } else {
       this.state = closedStates.indexOf(this.stateValue) >= 0 ?
-        NbSidebarComponent.STATE_EXPANDED : NbSidebarComponent.STATE_COLLAPSED;
+        SidebarComponent.STATE_EXPANDED : SidebarComponent.STATE_COLLAPSED;
     }
   }
 
@@ -302,16 +301,16 @@ export class NbSidebarComponent implements OnInit, OnDestroy {
         if (tablet.indexOf(current.name) !== -1) {
           this.fixed = true;
           this.compact();
-          this.responsiveState = NbSidebarComponent.RESPONSIVE_STATE_TABLET;
+          this.responsiveState = SidebarComponent.RESPONSIVE_STATE_TABLET;
         }
         if (mobile.indexOf(current.name) !== -1) {
           this.collapse();
-          this.responsiveState = NbSidebarComponent.RESPONSIVE_STATE_MOBILE;
+          this.responsiveState = SidebarComponent.RESPONSIVE_STATE_MOBILE;
         }
         if (tablet.indexOf(current.name) === -1  && prev.width < current.width) {
           this.expand();
           this.fixed = false;
-          this.responsiveState = NbSidebarComponent.RESPONSIVE_STATE_PC;
+          this.responsiveState = SidebarComponent.RESPONSIVE_STATE_PC;
         }
       });
   }

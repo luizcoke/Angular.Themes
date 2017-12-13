@@ -3,8 +3,6 @@ import { NbActionsTestComponent } from './actions-test/actions-test.component';
 import { NbBootstrapTestComponent } from './bootstrap-test/bootstrap-test.component';
 
 import { NbFormsTestComponent } from './forms-test/forms-test.component';
-import { NbLayoutFooterTestComponent } from './layout-test/layout-footer-test.component';
-import { NbLayoutHeaderTestComponent } from './layout-test/layout-header-test.component';
 import { NbLayoutTestComponent } from './layout-test/layout-test.component';
 import { NbThemeChangeTestComponent } from './layout-test/theme-change-test.component';
 import { NbThemeDynamicTestComponent } from './layout-test/theme-dynamic-test.component';
@@ -43,14 +41,6 @@ export const routes: Routes = [
   {
     path: 'layout',
     component: NbLayoutTestComponent,
-  },
-  {
-    path: 'layout/header',
-    component: NbLayoutHeaderTestComponent,
-  },
-  {
-    path: 'layout/footer',
-    component: NbLayoutFooterTestComponent,
   },
   {
     path: 'layout/themes',

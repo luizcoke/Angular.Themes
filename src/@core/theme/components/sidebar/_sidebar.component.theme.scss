@@ -1,7 +1,7 @@
 
-@mixin nb-sidebar-theme() {
+@mixin sidebar-theme() {
 
-  nb-sidebar {
+  sidebar-layout {
 
     font-size: nb-theme(sidebar-font-size);
     line-height: nb-theme(sidebar-line-height);
@@ -48,7 +48,7 @@
         overflow: hidden;
       }
 
-      nb-sidebar-header,  nb-sidebar-footer {
+      sidebar-header, sidebar-footer {
         width: 0;
         padding: 0;
         overflow: hidden;
@@ -142,12 +142,12 @@
       }
     }
 
-    nb-sidebar-header {
+    sidebar-header {
       padding: nb-theme(sidebar-padding);
       height: nb-theme(sidebar-header-height);
     }
 
-    nb-sidebar-footer {
+    sidebar-footer {
       padding: nb-theme(sidebar-padding);
       height: nb-theme(sidebar-footer-height);
     }

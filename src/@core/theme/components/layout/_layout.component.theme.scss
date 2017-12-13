@@ -4,16 +4,16 @@
 @mixin window-mode($padding-top) {
   padding-top: $padding-top;
 
-  nb-sidebar.fixed {
+  sidebar-layout.fixed {
     left: calc((100vw - #{nb-theme(layout-window-mode-max-width)}) / 2);
   }
 
   .layout .layout-container {
-    nb-sidebar.fixed.right {
+    sidebar-layout.fixed.right {
       right: calc((100vw - #{nb-theme(layout-window-mode-max-width)}) / 2);
     }
 
-    nb-sidebar.fixed {
+    sidebar-layout.fixed {
       top: calc(#{nb-theme(header-height)} + #{$padding-top});
     }
   }
@@ -134,7 +134,7 @@
         padding-top: nb-theme(header-height);
       }
 
-      &.fixed ~ .layout-container > nb-sidebar > .main-container {
+      &.fixed ~ .layout-container > sidebar-layout > .main-container {
         height: calc(#{nb-theme(sidebar-height)} - #{nb-theme(header-height)});
       }
     }
@@ -142,7 +142,7 @@
     .layout-container {
       min-height: nb-theme(layout-min-height);
 
-      nb-sidebar.fixed {
+      sidebar-layout.fixed {
         top: nb-theme(header-height);
       }
 

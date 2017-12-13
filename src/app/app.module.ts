@@ -22,8 +22,6 @@ import {
 } from '@avanade/theme';
 
 import { NbLayoutTestComponent } from './layout-test/layout-test.component';
-import { NbLayoutHeaderTestComponent } from './layout-test/layout-header-test.component';
-import { NbLayoutFooterTestComponent } from './layout-test/layout-footer-test.component';
 import { NbThemeChangeTestComponent } from './layout-test/theme-change-test.component';
 import { NbThemeBreakpointTestComponent } from './layout-test/theme-breakpoint-test.component';
 import { NbTabsetTestComponent } from './tabset-test/tabset-test.component';
@@ -63,8 +61,6 @@ const TEST_COMPONENTS = [
   AppComponent,
   NbCardTestComponent,
   NbLayoutTestComponent,
-  NbLayoutHeaderTestComponent,
-  NbLayoutFooterTestComponent,
   NbTabsetTestComponent,
   NbSidebarTestComponent,
   NbSidebarTestOneComponent,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NbSidebarService } from '@avanade/theme';
+import { SidebarService } from '@avanade/theme';
 
 @Component({
   selector: 'nb-sidebar-test',
@@ -19,13 +19,12 @@ import { NbSidebarService } from '@avanade/theme';
         <button id="collapse-right" (click)="collapseRight()">Collapse Right</button>
       </layout-header>
 
-      <nb-sidebar state="collapsed" fixed tag="left">
-      </nb-sidebar>
+      <sidebar-layout state="collapsed" fixed tag="left"></sidebar-layout>
 
-      <nb-sidebar right state="compacted" tag="right">
-        <nb-sidebar-header>Some Header</nb-sidebar-header>
+      <sidebar-layout right state="compacted" tag="right">
+        <sidebar-header>Header</sidebar-header>
         {{ content }}
-      </nb-sidebar>
+      </sidebar-layout>
 
       <layout-column left>
        {{ content }}
@@ -38,7 +37,7 @@ import { NbSidebarService } from '@avanade/theme';
       </layout-column>
 
       <layout-footer fixed>
-        &copy; footer 2017
+        &copy; footer
       </layout-footer>
     </layout-page>
 `,
@@ -47,7 +46,7 @@ export class NbSidebarTestComponent implements OnInit {
 
   content = 'First ';
 
-  constructor(private sidebarService: NbSidebarService) { }
+  constructor(private sidebarService: SidebarService) { }
 
   collapseLeft() {
     this.sidebarService.toggle(false, 'left');
@@ -60,7 +59,7 @@ export class NbSidebarTestComponent implements OnInit {
   ngOnInit() {
 
     for (let i = 0; i < 1000; i++) {
-      this.content += 'Akveo ';
+      this.content += 'App ';
     }
     this.content += ' Last';
   }
