@@ -21,10 +21,10 @@ const LAYOUT_COMPONENTS = [
     NbSharedModule,
   ],
   declarations: [
-    LAYOUT_COMPONENTS,
+    ...LAYOUT_COMPONENTS,
   ],
   exports: [
-    LAYOUT_COMPONENTS,
+    ...LAYOUT_COMPONENTS,
   ],
 })
 export class LayoutModule { }

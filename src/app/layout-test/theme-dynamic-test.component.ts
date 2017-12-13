@@ -36,7 +36,7 @@ export class NbDynamicToAddComponent {}
 
 
       <layout-footer fixed>
-        &copy; footer 2018
+        &copy; footer
       </layout-footer>
     </layout-page>
 `,

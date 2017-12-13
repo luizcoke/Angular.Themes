@@ -9,16 +9,15 @@ import { routes } from './app.routes';
 
 import {
   LayoutModule,
+  MenuModule,
   BoxModule,
   NbActionsModule,
-  NbMenuItem,
-  NbMenuModule,
   NbRouteTabsetModule,
   NbSearchModule,
-  NbSidebarModule,
+  SidebarModule,
   NbTabsetModule,
   NbThemeModule,
-  NbUserModule,
+  NbUserModule
 } from '@avanade/theme';
 
 import { NbLayoutTestComponent } from './layout-test/layout-test.component';
@@ -51,10 +50,8 @@ import { NbUserTestComponent } from './user-test/user-test.component';
 import { NbDynamicToAddComponent, NbThemeDynamicTestComponent } from './layout-test/theme-dynamic-test.component';
 import { NbActionsTestComponent } from './actions-test/actions-test.component';
 import { NbBootstrapTestComponent } from './bootstrap-test/bootstrap-test.component';
-
 import { NbSearchTestComponent } from './search-test/search-test.component';
 import { NbFormsTestComponent } from './forms-test/forms-test.component';
-
 import { NbCardTestComponent } from './card-test/card-test.component';
 
 const TEST_COMPONENTS = [
@@ -99,17 +96,16 @@ const TEST_COMPONENTS = [
     NbThemeModule.forRoot({ name: 'default' }),
     LayoutModule,
     BoxModule,
-    NbMenuModule.forRoot(),
-    NbMenuModule.forRoot(),
+    MenuModule.forRoot(),
+    SidebarModule.forRoot(),
     NbRouteTabsetModule,
-    NbSidebarModule.forRoot(),
     NbTabsetModule,
     NbUserModule,
     NbSearchModule,
     NbActionsModule,
   ],
   declarations: [
-    TEST_COMPONENTS
+    ...TEST_COMPONENTS
   ],
   entryComponents: [
     NbDynamicToAddComponent,

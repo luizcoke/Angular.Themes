@@ -18,7 +18,7 @@ const submenuToggle$ = new ReplaySubject(1);
  * Menu Item options
  * TODO: check if we need both URL and LINK
  */
-export abstract class NbMenuItem {
+export abstract class MenuItem {
   /**
    * Item Title
    * @type {string}
@@ -46,9 +46,9 @@ export abstract class NbMenuItem {
   expanded?: boolean;
   /**
    * Children items
-   * @type {List<NbMenuItem>}
+   * @type {List<MenuItem>}
    */
-  children?: NbMenuItem[];
+  children?: MenuItem[];
   /**
    * HTML Link target
    * @type {string}
@@ -74,7 +74,7 @@ export abstract class NbMenuItem {
    * @type {boolean}
    */
   group?: boolean;
-  parent?: NbMenuItem;
+  parent?: MenuItem;
   selected?: boolean;
   data?: any;
   fragment?: string;
@@ -86,14 +86,14 @@ export abstract class NbMenuItem {
  * Menu Service. Allows you to listen to menu events, or to interact with a menu.
  */
 @Injectable()
-export class NbMenuService {
+export class MenuService {
 
   /**
    * Add items to the end of the menu items list
-   * @param {List<NbMenuItem>} items
+   * @param {List<MenuItem>} items
    * @param {string} tag
    */
-  addItems(items: NbMenuItem[], tag?: string) {
+  addItems(items: MenuItem[], tag?: string) {
     addItems$.next({ tag, items });
   }
 
@@ -108,7 +108,7 @@ export class NbMenuService {
   /**
    * Returns currently selected item. Won't subscribe to the future events.
    * @param {string} tag
-   * @returns {Observable<{tag: string; item: NbMenuItem}>}
+   * @returns {Observable<{tag: string; item: MenuItem}>}
    */
   getSelectedItem(tag?: string): Observable<any> {
     const listener = new BehaviorSubject<{}>(null);
@@ -136,27 +136,27 @@ export class NbMenuService {
 }
 
 @Injectable()
-export class NbMenuInternalService {
-  private items: NbMenuItem[] = [];
+export class MenuInternalService {
+  private items: MenuItem[] = [];
 
   constructor(private router: Router, private location: Location) {
     this.items = [];
   }
 
-  getItems(): NbMenuItem[] {
+  getItems(): MenuItem[] {
     return this.items;
   }
 
-  prepareItems(items: NbMenuItem[]) {
+  prepareItems(items: MenuItem[]) {
     items.forEach(i => this.setParent(i));
     items.forEach(i => this.prepareItem(i));
   }
 
-  resetItems(items: NbMenuItem[]) {
+  resetItems(items: MenuItem[]) {
     items.forEach(i => this.resetItem(i));
   }
 
-  collapseAll(items: NbMenuItem[], except?: NbMenuItem) {
+  collapseAll(items: MenuItem[], except?: MenuItem) {
     items.forEach(i => this.collapseItem(i, except));
   }
 
@@ -172,23 +172,23 @@ export class NbMenuInternalService {
     return getSelectedItem$.publish().refCount();
   }
 
-  itemHover(item: NbMenuItem, tag?: string) {
+  itemHover(item: MenuItem, tag?: string) {
     itemHover$.next({ tag, item });
   }
 
-  submenuToggle(item: NbMenuItem, tag?: string) {
+  submenuToggle(item: MenuItem, tag?: string) {
     submenuToggle$.next({ tag, item });
   }
 
-  itemSelect(item: NbMenuItem, tag?: string) {
+  itemSelect(item: MenuItem, tag?: string) {
     itemSelect$.next({ tag, item });
   }
 
-  itemClick(item: NbMenuItem, tag?: string) {
+  itemClick(item: MenuItem, tag?: string) {
     itemClick$.next({ tag, item });
   }
 
-  private resetItem(item: NbMenuItem) {
+  private resetItem(item: MenuItem) {
     item.selected = false;
 
     item.children && item.children.forEach(child => {
@@ -196,7 +196,7 @@ export class NbMenuInternalService {
     });
   }
 
-  private collapseItem(item: NbMenuItem, except?: NbMenuItem) {
+  private collapseItem(item: MenuItem, except?: MenuItem) {
     if (except && item === except) {
       return;
     }
@@ -207,14 +207,14 @@ export class NbMenuInternalService {
     });
   }
 
-  private setParent(item: NbMenuItem) {
+  private setParent(item: MenuItem) {
     item.children && item.children.forEach(child => {
       child.parent = item;
       this.setParent(child);
     });
   }
 
-  private prepareItem(item: NbMenuItem) {
+  private prepareItem(item: MenuItem) {
     item.selected = false;
 
     const exact: boolean = item.pathMatch === 'full';
@@ -232,7 +232,7 @@ export class NbMenuInternalService {
     });
   }
 
-  private selectParent(item: NbMenuItem) {
+  private selectParent(item: MenuItem) {
     const parent = item.parent;
     if (parent) {
       parent.selected = true;

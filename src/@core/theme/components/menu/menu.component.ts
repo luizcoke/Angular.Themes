@@ -3,16 +3,16 @@ import { Router, NavigationEnd } from '@angular/router';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/takeWhile';
 
-import { NbMenuInternalService, NbMenuItem } from './menu.service';
+import { MenuInternalService, MenuItem } from './menu.service';
 import { convertToBoolProperty } from '../helpers';
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: '[nbMenuItem]',
+  selector: '[menuItem]',
   templateUrl: './menu-item.component.html',
 })
-export class NbMenuItemComponent {
-  @Input() menuItem = <NbMenuItem>null;
+export class MenuItemComponent {
+  @Input() menuItem = <MenuItem>null;
 
   @Output() hoverItem = new EventEmitter<any>();
   @Output() toggleSubMenu = new EventEmitter<any>();
@@ -21,19 +21,19 @@ export class NbMenuItemComponent {
 
   constructor(private router: Router) { }
 
-  onToggleSubMenu(item: NbMenuItem) {
+  onToggleSubMenu(item: MenuItem) {
     this.toggleSubMenu.emit(item);
   }
 
-  onHoverItem(item: NbMenuItem) {
+  onHoverItem(item: MenuItem) {
     this.hoverItem.emit(item);
   }
 
-  onSelectItem(item: NbMenuItem) {
+  onSelectItem(item: MenuItem) {
     this.selectItem.emit(item);
   }
 
-  onItemClick(item: NbMenuItem) {
+  onItemClick(item: MenuItem) {
     this.itemClick.emit(item);
   }
 }
@@ -78,11 +78,11 @@ export class NbMenuItemComponent {
  * menu-icon-active-color:
  */
 @Component({
-  selector: 'nb-menu',
+  selector: 'menu-layout',
   styleUrls: ['./menu.component.scss'],
   template: `
     <ul class="menu-items">
-      <li nbMenuItem *ngFor="let item of items"
+      <li menuItem *ngFor="let item of items"
                       [menuItem]="item"
                       [class.menu-group]="item.group"
                       (hoverItem)="onHoverItem($event)"
@@ -93,7 +93,7 @@ export class NbMenuItemComponent {
     </ul>
   `,
 })
-export class NbMenuComponent implements OnInit, OnDestroy {
+export class MenuComponent implements OnInit, OnDestroy {
   @HostBinding('class.inverse') inverseValue: boolean;
 
   /**
@@ -106,9 +106,9 @@ export class NbMenuComponent implements OnInit, OnDestroy {
 
   /**
    * List of menu items.
-   * @type List<NbMenuItem> | List<any> | any
+   * @type List<MenuItem> | List<any> | any
    */
-  @Input() items: NbMenuItem[];
+  @Input() items: MenuItem[];
 
   /**
    * Makes colors inverse based on current theme
@@ -132,13 +132,13 @@ export class NbMenuComponent implements OnInit, OnDestroy {
   private alive: boolean = true;
   private autoCollapseValue: boolean = false;
 
-  constructor(private menuInternalService: NbMenuInternalService, private router: Router) { }
+  constructor(private menuInternalService: MenuInternalService, private router: Router) { }
 
   ngOnInit() {
     this.menuInternalService
       .onAddItem()
       .takeWhile(() => this.alive)
-      .subscribe((data: { tag: string; items: NbMenuItem[] }) => {
+      .subscribe((data: { tag: string; items: MenuItem[] }) => {
         if (this.compareTag(data.tag)) {
           this.items.push(...data.items);
 
@@ -158,7 +158,7 @@ export class NbMenuComponent implements OnInit, OnDestroy {
       .onGetSelectedItem()
       .filter(data => !data.tag || data.tag === this.tag)
       .takeWhile(() => this.alive)
-      .subscribe((data: { tag: string; listener: BehaviorSubject<{ tag: string; item: NbMenuItem }> }) => {
+      .subscribe((data: { tag: string; listener: BehaviorSubject<{ tag: string; item: MenuItem }> }) => {
         data.listener.next({ tag: this.tag, item: this.getSelectedItem(this.items) });
       });
 
@@ -172,11 +172,11 @@ export class NbMenuComponent implements OnInit, OnDestroy {
     this.menuInternalService.prepareItems(this.items);
   }
 
-  onHoverItem(item: NbMenuItem) {
+  onHoverItem(item: MenuItem) {
     this.menuInternalService.itemHover(item, this.tag);
   }
 
-  onToggleSubMenu(item: NbMenuItem) {
+  onToggleSubMenu(item: MenuItem) {
     if (this.autoCollapseValue) {
       this.menuInternalService.collapseAll(this.items, item);
     }
@@ -185,13 +185,13 @@ export class NbMenuComponent implements OnInit, OnDestroy {
   }
 
   // TODO: is not fired on page reload
-  onSelectItem(item: NbMenuItem) {
+  onSelectItem(item: MenuItem) {
     this.menuInternalService.resetItems(this.items);
     item.selected = true;
     this.menuInternalService.itemSelect(item, this.tag);
   }
 
-  onItemClick(item: NbMenuItem) {
+  onItemClick(item: MenuItem) {
     this.menuInternalService.itemClick(item, this.tag);
   }
 
@@ -216,9 +216,9 @@ export class NbMenuComponent implements OnInit, OnDestroy {
     }
   }
 
-  private getHomeItem(items: NbMenuItem[]): NbMenuItem {
+  private getHomeItem(items: MenuItem[]): MenuItem {
     let home = null;
-    items.forEach((item: NbMenuItem) => {
+    items.forEach((item: MenuItem) => {
       if (item.home) {
         home = item;
       }
@@ -233,9 +233,9 @@ export class NbMenuComponent implements OnInit, OnDestroy {
     return !tag || tag === this.tag;
   }
 
-  private getSelectedItem(items: NbMenuItem[]): NbMenuItem {
+  private getSelectedItem(items: MenuItem[]): MenuItem {
     let selected = null;
-    items.forEach((item: NbMenuItem) => {
+    items.forEach((item: MenuItem) => {
       if (item.selected) {
         selected = item;
       }

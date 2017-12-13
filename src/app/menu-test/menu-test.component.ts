@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import 'rxjs/add/operator/takeWhile';
-import { NbMenuService, NbMenuItem } from '@avanade/theme';
+import { MenuService, MenuItem } from '@avanade/theme';
 
 @Component({
   selector: 'nb-menu-item1',
@@ -81,7 +81,7 @@ export class NbMenuItem4Component { }
       <layout-column>
         <box size="medium">
           <box-body>
-            <nb-menu tag="firstMenu" [items]="menuItems"></nb-menu>
+            <menu-layout tag="firstMenu" [items]="menuItems"></menu-layout>
             <router-outlet></router-outlet>
             <button class="btn btn-primary" id="addBtn" (click)="addMenuItem()">Add</button>
             <button class="btn btn-primary" id="homeBtn" (click)="navigateHome()">Home</button>
@@ -109,26 +109,26 @@ export class NbMenuTestComponent implements OnInit, OnDestroy {
 
   private alive: boolean = true;
 
-  constructor(private menuService: NbMenuService) { }
+  constructor(private menuService: MenuService) { }
 
   ngOnInit() {
     this.menuService
       .onItemClick()
       .takeWhile(() => this.alive)
-      .subscribe((data: { tag: string; item: NbMenuItem }) => console.info(data));
+      .subscribe((data: { tag: string; item: MenuItem }) => console.info(data));
 
     this.menuService
       .onItemSelect()
       .takeWhile(() => this.alive)
-      .subscribe((data: { tag: string; item: NbMenuItem }) => console.info(data));
+      .subscribe((data: { tag: string; item: MenuItem }) => console.info(data));
 
     // this.itemHoverSubscription = this.menuService.onItemHover()
-    //   .subscribe((data: { tag: string, item: NbMenuItem }) => console.info(data));
+    //   .subscribe((data: { tag: string, item: MenuItem }) => console.info(data));
 
     this.menuService
       .onSubmenuToggle()
       .takeWhile(() => this.alive)
-      .subscribe((data: { tag: string; item: NbMenuItem }) => console.info(data));
+      .subscribe((data: { tag: string; item: MenuItem }) => console.info(data));
 
     this.menuService.addItems(
       [
@@ -158,7 +158,7 @@ export class NbMenuTestComponent implements OnInit, OnDestroy {
                 {
                   title: '@avanade/theme',
                   target: '_blank',
-                  url: 'https://github.com/akveo/ng2-admin',
+                  url: '',
                 },
               ],
             },

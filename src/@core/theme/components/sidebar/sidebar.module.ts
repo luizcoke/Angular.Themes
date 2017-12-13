@@ -25,18 +25,18 @@ const SIDEBAR_PROVIDERS = [
     NbSharedModule,
   ],
   declarations: [
-    SIDEBAR_COMPONENTS,
+    ...SIDEBAR_COMPONENTS,
   ],
   exports: [
-    SIDEBAR_COMPONENTS,
+    ...SIDEBAR_COMPONENTS,
   ],
 })
-export class NbSidebarModule {
+export class SidebarModule {
   static forRoot(): ModuleWithProviders {
     return <ModuleWithProviders>{
-      ngModule: NbSidebarModule,
+      ngModule: SidebarModule,
       providers: [
-        SIDEBAR_PROVIDERS
+        ...SIDEBAR_PROVIDERS
       ],
     };
   }

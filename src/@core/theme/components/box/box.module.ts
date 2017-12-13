@@ -20,10 +20,10 @@ const BOX_COMPONENTS = [
     NbSharedModule,
   ],
   declarations: [
-    BOX_COMPONENTS,
+    ...BOX_COMPONENTS,
   ],
   exports: [
-    BOX_COMPONENTS,
+    ...BOX_COMPONENTS,
   ],
 })
 export class BoxModule { }
