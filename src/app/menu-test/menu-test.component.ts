@@ -79,14 +79,14 @@ export class NbMenuItem4Component { }
   template: `
     <layout-page>
       <layout-column>
-        <nb-card size="medium">
-          <nb-card-body>
+        <box size="medium">
+          <box-body>
             <nb-menu tag="firstMenu" [items]="menuItems"></nb-menu>
             <router-outlet></router-outlet>
             <button class="btn btn-primary" id="addBtn" (click)="addMenuItem()">Add</button>
             <button class="btn btn-primary" id="homeBtn" (click)="navigateHome()">Home</button>
-          </nb-card-body>
-        </nb-card>
+          </box-body>
+        </box>
       </layout-column>
     </layout-page>
   `,

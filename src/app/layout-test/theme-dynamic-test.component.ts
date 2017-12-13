@@ -26,12 +26,12 @@ export class NbDynamicToAddComponent {}
       </nb-sidebar>
 
       <layout-column>
-        <nb-card>
-          <nb-card-header>Hello</nb-card-header>
-          <nb-card-body>
+        <box>
+          <box-header>Hello</box-header>
+          <box-body>
             Some Test content
-          </nb-card-body>
-        </nb-card>
+          </box-body>
+        </box>
       </layout-column>
 
 

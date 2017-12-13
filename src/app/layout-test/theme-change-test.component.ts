@@ -16,12 +16,12 @@ import { NbThemeService } from '@avanade/theme';
       </nb-sidebar>
 
       <layout-column>
-        <nb-card>
-          <nb-card-header>Main content</nb-card-header>
-          <nb-card-body>
+        <box>
+          <box-header>Main content</box-header>
+          <box-body>
             Content
-          </nb-card-body>
-        </nb-card>
+          </box-body>
+        </box>
       </layout-column>
 
       <layout-footer fixed>

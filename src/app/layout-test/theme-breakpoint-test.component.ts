@@ -1,11 +1,4 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 import { Component } from '@angular/core';
-
 import { NbMediaBreakpointsService, NbThemeService } from '@avanade/theme';
 
 @Component({
@@ -17,18 +10,18 @@ import { NbMediaBreakpointsService, NbThemeService } from '@avanade/theme';
       </layout-header>
 
       <layout-column>
-        <nb-card>
-          <nb-card-header>Breakpoint</nb-card-header>
-          <nb-card-body>
+        <box>
+          <box-header>Breakpoint</box-header>
+          <box-body>
             <p>Resize the window to the next/prev breakpoint to see the change</p>
             <div> Prev breakpoint : <strong>{{ change[0]?.name }} ({{ change[0]?.width }})</strong></div>
             <div> Current breakpoint : <strong>{{ change[1]?.name }} ({{ change[1]?.width }})</strong></div>
-          </nb-card-body>
-        </nb-card>
+          </box-body>
+        </box>
       </layout-column>
 
       <layout-footer fixed>
-        &copy; footer 2017
+        &copy; footer
       </layout-footer>
     </layout-page>
   `,

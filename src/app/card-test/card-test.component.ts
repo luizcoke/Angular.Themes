@@ -1,21 +1,21 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'nb-card-test',
+  selector: 'box-test',
   template: `
     <layout-page>
       <layout-column>
-        <nb-card *ngFor="let card of cards" [size]="card.size" [status]="card.status">
-          <nb-card-header>
+        <box *ngFor="let card of cards" [size]="card.size" [status]="card.status">
+          <box-header>
             <span>Header</span>
-          </nb-card-header>
-          <nb-card-body *ngIf="card.size !== 'xxsmall'">
+          </box-header>
+          <box-body *ngIf="card.size !== 'xxsmall'">
             <span>Body</span>
-          </nb-card-body>
-          <nb-card-footer *ngIf="card.size !== 'xxsmall'">
+          </box-body>
+          <box-footer *ngIf="card.size !== 'xxsmall'">
             <span>Footer</span>
-          </nb-card-footer>
-        </nb-card>
+          </box-footer>
+        </box>
       </layout-column>
     </layout-page>
   `,

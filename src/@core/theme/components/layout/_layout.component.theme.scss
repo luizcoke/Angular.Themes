@@ -24,7 +24,7 @@
   }
 }
 
-@mixin nb-layout-theme() {
+@mixin layout-page-theme() {
 
   layout-page {
     @include nb-scrollbars(
@@ -46,7 +46,6 @@
   }
 
   .layout {
-    // TODO: check this prop name
     min-width: nb-theme(layout-window-mode-min-width);
   }
 
