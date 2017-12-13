@@ -10,64 +10,64 @@ import { Component } from '@angular/core';
   selector: 'nb-layout-test',
   styles: [
     `
-      :host /deep/ nb-layout-column {
+      :host /deep/ layout-column {
         background-color: #fb75ff;
       }
-      :host /deep/ nb-layout-column.right {
+      :host /deep/ layout-column.right {
         background-color: #aeff34;
       }
-      :host /deep/ nb-layout-column.left {
+      :host /deep/ layout-column.left {
         background-color: #76ecff;
       }
 
     `,
   ],
   template: `
-    <nb-layout id="layout-fluid">
-      <nb-layout-header fixed>
+    <layout-page id="layout-fluid">
+      <layout-header fixed>
         <a href="#" class="navbar-brand">Akveo</a>
-      </nb-layout-header>
+      </layout-header>
 
-      <nb-layout-column left>
+      <layout-column left>
         Left
-      </nb-layout-column>
-      <nb-layout-column>
+      </layout-column>
+      <layout-column>
         Center
-      </nb-layout-column>
-      <nb-layout-column>
+      </layout-column>
+      <layout-column>
         Right<br>
         <div style="overflow: hidden">
           <div style="width: 20000px; background: red;">super long </div>
         </div>
-      </nb-layout-column>
+      </layout-column>
 
-      <nb-layout-footer>
+      <layout-footer>
         &copy; Akveo 2017
-      </nb-layout-footer>
-    </nb-layout>
+      </layout-footer>
+    </layout-page>
 
-    <nb-layout center id="layout-center">
-      <nb-layout-header fixed>
+    <layout-page center id="layout-center">
+      <layout-header fixed>
         <a href="#" class="navbar-brand">Akveo</a>
-      </nb-layout-header>
+      </layout-header>
 
-      <nb-layout-column left>
+      <layout-column left>
         Left
-      </nb-layout-column>
-      <nb-layout-column>
+      </layout-column>
+      <layout-column>
         Center
-      </nb-layout-column>
-      <nb-layout-column>
+      </layout-column>
+      <layout-column>
         Right<br>
         <div style="overflow: hidden">
           <div style="width: 20000px; background: red;">super long </div>
         </div>
-      </nb-layout-column>
+      </layout-column>
 
-      <nb-layout-footer fixed>
+      <layout-footer fixed>
         &copy; Akveo 2017
-      </nb-layout-footer>
-    </nb-layout>
+      </layout-footer>
+    </layout-page>
 `,
 })
 export class NbLayoutTestComponent {

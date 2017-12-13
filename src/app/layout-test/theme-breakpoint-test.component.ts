@@ -11,12 +11,12 @@ import { NbMediaBreakpointsService, NbThemeService } from '@avanade/theme';
 @Component({
   selector: 'nb-breakpoint-test',
   template: `
-    <nb-layout>
-      <nb-layout-header fixed>
-        <a href="#" class="navbar-brand">Akveo</a>
-      </nb-layout-header>
+    <layout-page>
+      <layout-header fixed>
+        <a href="#" class="navbar-brand">App</a>
+      </layout-header>
 
-      <nb-layout-column>
+      <layout-column>
         <nb-card>
           <nb-card-header>Breakpoint</nb-card-header>
           <nb-card-body>
@@ -25,13 +25,12 @@ import { NbMediaBreakpointsService, NbThemeService } from '@avanade/theme';
             <div> Current breakpoint : <strong>{{ change[1]?.name }} ({{ change[1]?.width }})</strong></div>
           </nb-card-body>
         </nb-card>
-      </nb-layout-column>
+      </layout-column>
 
-
-      <nb-layout-footer fixed>
-        &copy; Akveo 2017
-      </nb-layout-footer>
-    </nb-layout>
+      <layout-footer fixed>
+        &copy; footer 2017
+      </layout-footer>
+    </layout-page>
   `,
 })
 export class NbThemeBreakpointTestComponent {

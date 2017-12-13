@@ -1,9 +1,3 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 import { Component } from '@angular/core';
 
 @Component({
@@ -23,12 +17,12 @@ export class NbRouteTabsetTestChild2Component {
 @Component({
   selector: 'nb-route-tabset-test',
   template: `
-    <nb-layout>
-      <nb-layout-column>
+    <layout-page>
+      <layout-column>
         <nb-route-tabset [tabs]="tabs"></nb-route-tabset>
         <nb-route-tabset [tabs]="tabs" fullWidth></nb-route-tabset>
-      </nb-layout-column>
-    </nb-layout>
+      </layout-column>
+    </layout-page>
   `,
 })
 export class NbRouteTabsetTestComponent {

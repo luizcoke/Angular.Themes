@@ -9,8 +9,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'nb-actions-test',
   template: `
-    <nb-layout>
-      <nb-layout-header>
+    <layout-page>
+      <layout-header>
         <nb-actions>
           <nb-action icon="ion-ios-email-outline" (click)="actionOnClick('first')"></nb-action>
           <nb-action icon="ion-ios-bell-outline"></nb-action>
@@ -24,8 +24,8 @@ import { Component } from '@angular/core';
             Hello
           </nb-action>
         </nb-actions>
-      </nb-layout-header>
-      <nb-layout-column>
+      </layout-header>
+      <layout-column>
 
         <nb-card>
           <nb-card-body>
@@ -80,8 +80,8 @@ import { Component } from '@angular/core';
             </nb-actions>
           </nb-card-body>
         </nb-card>
-      </nb-layout-column>
-    </nb-layout>
+      </layout-column>
+    </layout-page>
   `,
 })
 export class NbActionsTestComponent {

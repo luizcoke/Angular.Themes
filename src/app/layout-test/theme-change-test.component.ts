@@ -4,38 +4,41 @@ import { NbThemeService } from '@avanade/theme';
 @Component({
   selector: 'nb-change-theme-test',
   template: `
-    <nb-layout>
-      <nb-layout-header fixed>
+    <layout-page>
+      <layout-header fixed>
         <a href="#" class="navbar-brand">App</a>
-        <button id="change-theme" (click)="changeTheme()">Change Theme</button>
-      </nb-layout-header>
-
+      </layout-header>
       <nb-sidebar right>
-          Sidebar content
+          <p>Sidebar content</p>
+          <select id="change-theme" [(ngModel)]="currentTheme" (ngModelChange)="onChange($event)">
+            <option *ngFor="let t of themes" [ngValue]="t">{{t}}</option>
+          </select>
       </nb-sidebar>
 
-      <nb-layout-column>
+      <layout-column>
         <nb-card>
-          <nb-card-header>Main contnet</nb-card-header>
+          <nb-card-header>Main content</nb-card-header>
           <nb-card-body>
             Content
           </nb-card-body>
         </nb-card>
-      </nb-layout-column>
+      </layout-column>
 
-      <nb-layout-footer fixed>
-        &copy; footer
-      </nb-layout-footer>
-    </nb-layout>
+      <layout-footer fixed>
+        &copy; footer 2018
+      </layout-footer>
+    </layout-page>
 `,
 })
 export class NbThemeChangeTestComponent {
   currentTheme = 'default';
+  themes = ['default', 'cosmic', 'go-orange'];
 
   constructor(private themeService: NbThemeService) { }
 
-  changeTheme() {
-    this.currentTheme = this.currentTheme === 'default' ? 'go-orange' : 'default';
+  onChange(value: string) {
+
+    this.currentTheme = value;
     this.themeService.changeTheme(this.currentTheme);
   }
 }

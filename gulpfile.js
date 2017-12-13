@@ -192,7 +192,7 @@ gulp.task('bundle', ['bundle:umd:theme']);
 gulp.task('bump', bumpVersions);
 
 function bumpVersions() {
-  gulp.src(['./package.json', './src/core/theme/package.json'], {base: './'})
+  gulp.src(['./package.json', './src/@core/theme/package.json'], {base: './'})
     .pipe(bump({
       version: VERSION
     }))
@@ -200,7 +200,7 @@ function bumpVersions() {
 }
 
 function copySources() {
-  gulp.src('./src/core/**/*')
+  gulp.src('./src/@core/**/*')
     .pipe(gulp.dest(BUILD_DIR))
     .on('end', replaceScssWithCss);
 }
@@ -274,7 +274,7 @@ gulp.task('generate-doc-json', generateDocJson);
 
 function generateDocJson() {
   return gulp
-    .src(['src/core/**/*.ts', '!src/core/theme/**/node_modules{,/**}'])
+    .src(['src/@core/**/*.ts', '!src/@core/theme/**/node_modules{,/**}'])
     .pipe(typedoc({
       module: 'commonjs',
       target: 'ES6',

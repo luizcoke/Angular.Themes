@@ -1,9 +1,3 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 @import '../../styles/global/bootstrap/breakpoints';
 @import '~bootstrap/scss/mixins/breakpoints';
 
@@ -32,7 +26,7 @@
 
 @mixin nb-layout-theme() {
 
-  nb-layout {
+  layout-page {
     @include nb-scrollbars(
         nb-theme(scrollbar-fg),
         nb-theme(scrollbar-bg),
@@ -40,7 +34,7 @@
   }
 
 
-  nb-layout.with-scroll .scrollable-container {
+  layout-page.with-scroll .scrollable-container {
     overflow: auto;
     height: 100vh;
     display: block;
@@ -56,7 +50,7 @@
     min-width: nb-theme(layout-window-mode-min-width);
   }
 
-  nb-layout.window-mode {
+  layout-page.window-mode {
 
     background: nb-theme(layout-window-mode-bg);
     display: block;
@@ -66,7 +60,7 @@
       margin: 0 auto;
     }
 
-    .layout nb-layout-header nav {
+    .layout layout-header nav {
       max-width: nb-theme(layout-window-mode-max-width);
       margin: 0 auto;
     }
@@ -76,7 +70,7 @@
 
       @include window-mode($padding-top);
 
-      nb-layout.with-scroll {
+      layout-page.with-scroll {
         .scrollable-container {
           height: calc(100vh - #{$padding-top});
         }
@@ -88,7 +82,7 @@
 
       @include window-mode($padding-top);
 
-      nb-layout.with-scroll {
+      layout-page.with-scroll {
         .scrollable-container {
           height: calc(100vh - #{$padding-top});
         }
@@ -100,7 +94,7 @@
 
       @include window-mode($padding-top);
 
-      nb-layout.with-scroll {
+      layout-page.with-scroll {
         .scrollable-container {
           height: calc(100vh - #{$padding-top});
         }
@@ -108,8 +102,7 @@
     }
   }
 
-  nb-layout .layout {
-    // TODO: probably we need to separate this form here and move it to the typography scss module
+  layout-page .layout {
     font-family: nb-theme(layout-font-family);
     font-size: nb-theme(layout-font-size);
     line-height: nb-theme(layout-line-height);
@@ -117,7 +110,7 @@
     background: nb-theme(layout-bg);
     min-height: nb-theme(layout-min-height);
 
-    nb-layout-header {
+    layout-header {
       font-family: nb-theme(header-font-family);
       font-size: nb-theme(header-font-size);
       line-height: nb-theme(header-line-height);
@@ -156,7 +149,7 @@
 
       .content {
 
-        nb-layout-footer {
+        layout-footer {
           box-shadow: nb-theme(footer-shadow);
 
           nav {
@@ -181,7 +174,7 @@
           flex: 0 100 nb-theme(layout-content-width) !important;
         }
 
-        .columns nb-layout-column {
+        .columns layout-column {
           padding: nb-theme(layout-padding);
 
           @include media-breakpoint-down(md) {

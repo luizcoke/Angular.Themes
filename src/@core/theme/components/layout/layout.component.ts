@@ -1,9 +1,3 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 import {
   AfterViewInit, Component, ComponentFactoryResolver, ElementRef, HostBinding, HostListener, Input, OnDestroy,
   Renderer2, ViewChild, ViewContainerRef, OnInit,
@@ -19,132 +13,23 @@ import { convertToBoolProperty } from '../helpers';
 import { NbThemeService } from '../../services/theme.service';
 import { NbSpinnerService } from '../../services/spinner.service';
 
-/**
- * A container component which determines a content position inside of the layout.
- * The layout could contain unlimited columns (not including the sidebars).
- *
- * @example By default the columns are ordered from the left to the right,
- * but it's also possible to overwrite this behavior by setting a `left` attribute to the column,
- * moving it to the very first position:
- * ```
- * <nb-layout>
- *   <nb-layout-column>Second</nb-layout-column>
- *   <nb-layout-column>Third</nb-layout-column>
- *   <nb-layout-column left>First</nb-layout-column>
- * </nb-layout>
- * ```
- */
-@Component({
-  selector: 'nb-layout-column',
-  template: `
-    <ng-content></ng-content>
-  `,
-})
-export class NbLayoutColumnComponent {
-
-  @HostBinding('class.left') leftValue: boolean;
-
-  /**
-   * Move the column to the very left position in the layout.
-   * @param {boolean} val
-   */
-  @Input()
-  set left(val: boolean) {
-    this.leftValue = convertToBoolProperty(val);
-  }
-}
-
-/**
- * Page header component.
- * Located on top of the page above the layout columns and sidebars.
- * Could be made `fixed` by setting the corresponding property. In the fixed mode the header becomes
- * sticky to the top of the nb-layout (to of the page).
- *
- * @styles
- *
- * header-font-family
- * header-line-height
- * header-fg
- * header-bg
- * header-height
- * header-padding
- * header-shadow
- */
-@Component({
-  selector: 'nb-layout-header',
-  template: `
-    <nav [class.fixed]="fixedValue">
-      <ng-content></ng-content>
-    </nav>
-  `,
-})
-export class NbLayoutHeaderComponent {
-
-  @HostBinding('class.fixed') fixedValue: boolean;
-
-  /**
-   * Makes the header sticky to the top of the nb-layout.
-   * @param {boolean} val
-   */
-  @Input()
-  set fixed(val: boolean) {
-    this.fixedValue = convertToBoolProperty(val);
-  }
-}
-
-/**
- * Page footer.
- * Located under the nb-layout content (specifically, under the columns).
- * Could be made `fixed`, becoming sticky to the bottom of the view port (window).
- *
- * @styles
- *
- * footer-height
- * footer-padding
- * footer-fg
- * footer-bg
- * footer-separator
- * footer-shadow
- */
-@Component({
-  selector: 'nb-layout-footer',
-  template: `
-    <nav [class.fixed]="fixedValue">
-      <ng-content></ng-content>
-    </nav>
-  `,
-})
-export class NbLayoutFooterComponent {
-
-  @HostBinding('class.fixed') fixedValue: boolean;
-
-  /**
-   * Makes the footer sticky to the bottom of the window.
-   * @param {boolean} val
-   */
-  @Input()
-  set fixed(val: boolean) {
-    this.fixedValue = convertToBoolProperty(val);
-  }
-
-}
 
 /**
  * The general Nebular component-container.
- * It is required that all children component of the framework are located inside of the nb-layout.
+ * It is required that all children component of the framework are located inside of the layout.
  *
  * Can contain the following components inside:
  *
  * ```
- * nb-layout-header
- * nb-layout-column
- * nb-sidebar
- * nb-layout-footer
+ * layout-header
+ * layout-column
+ * sidebar
+ * layout-footer
  * ```
  *
  * By default the layout fills up the full view-port.
- * The window scrollbars are disabled on the body and moved inside of the nb-layout, so that the scrollbars
- * won't mess with the fixed nb-header.
+ * The window scrollbars are disabled on the body and moved inside of the layout, so that the scrollbars
+ * won't mess with the fixed header.
  *
  * The children components are projected into the flexible layout structure allowing to adjust the layout behavior
  * based on the settings provided.
@@ -152,7 +37,7 @@ export class NbLayoutFooterComponent {
  * The layout content (columns) becomes centered when the window width is more than
  * the value specified in the theme variable `layout-content-width`.
  *
- * The layout also contains the area on the very top (the first child of the nb-layout), which could be used
+ * The layout also contains the area on the very top (the first child of the layout), which could be used
  * to dynamically append some components like modals or spinners/loaders
  * so that they are located on top of the elements hierarchy.
  * More details are below under the `ThemeService` section.
@@ -165,30 +50,30 @@ export class NbLayoutFooterComponent {
  * @example A simple layout example:
  *
  * ```
- * <nb-layout>
- *   <nb-layout-header>Great Company</nb-layout-header>
+ * <layout-page>
+ *   <layout-header>Great Company</layout-header>
  *
- *   <nb-layout-column>
+ *   <layout-column>
  *     Hello World!
- *   </nb-layout-column>
+ *   </layout-column>
  *
- *   <nb-layout-footer>Contact us</nb-layout-footer>
- * </nb-layout>
+ *   <layout-footer>Contact us</layout-footer>
+ * </layout-page>
  * ```
  *
  * @example For example, it is possible to ask the layout to center the columns (notice: we added a `center` attribute
  * to the layout:
  *
  * ```
- * <nb-layout center>
- *   <nb-layout-header>Great Company</nb-layout-header>
+ * <layout center>
+ *   <layout-header>Great Company</layout-header>
  *
- *   <nb-layout-column>
- *     Hello World!
- *   </nb-layout-column>
+ *   <layout-column>
+ *     Content
+ *   </layout-column>
  *
- *   <nb-layout-footer>Contact us</nb-layout-footer>
- * </nb-layout>
+ *   <layout-footer>Contact us</layout-footer>
+ * </layout-page>
  * ```
  *
  * @styles
@@ -210,27 +95,27 @@ export class NbLayoutFooterComponent {
  * layout-small-padding
  */
 @Component({
-  selector: 'nb-layout',
+  selector: 'layout-page',
   styleUrls: ['./layout.component.scss'],
   template: `
     <ng-template #layoutTopDynamicArea></ng-template>
     <div class="scrollable-container" #scrollableContainer>
       <div class="layout">
-        <ng-content select="nb-layout-header"></ng-content>
+        <ng-content select="layout-header"></ng-content>
         <div class="layout-container">
           <ng-content select="nb-sidebar"></ng-content>
           <div class="content" [class.center]="centerValue">
             <div class="columns">
-              <ng-content select="nb-layout-column"></ng-content>
+              <ng-content select="layout-column"></ng-content>
             </div>
-            <ng-content select="nb-layout-footer"></ng-content>
+            <ng-content select="layout-footer"></ng-content>
           </div>
         </div>
       </div>
     </div>
   `,
 })
-export class NbLayoutComponent implements AfterViewInit, OnInit, OnDestroy {
+export class LayoutPageComponent implements AfterViewInit, OnInit, OnDestroy {
 
   centerValue: boolean = false;
 
@@ -268,8 +153,6 @@ export class NbLayoutComponent implements AfterViewInit, OnInit, OnDestroy {
   set withScroll(val: boolean) {
     this.withScrollValue = convertToBoolProperty(val);
 
-    // TODO: is this the best way of doing it? as we don't have access to body from theme styles
-    // TODO: add e2e test
     const body = document.getElementsByTagName('body')[0];
     if (this.withScrollValue) {
       this.renderer.setStyle(body, 'overflow', 'hidden');
@@ -369,4 +252,114 @@ export class NbLayoutComponent implements AfterViewInit, OnInit, OnDestroy {
         this.scrollableContainerRef.nativeElement.scrollTo && this.scrollableContainerRef.nativeElement.scrollTo(0, 0);
       });
   }
+}
+
+/**
+ * A container component which determines a content position inside of the layout.
+ * The layout could contain unlimited columns (not including the sidebars).
+ *
+ * @example By default the columns are ordered from the left to the right,
+ * but it's also possible to overwrite this behavior by setting a `left` attribute to the column,
+ * moving it to the very first position:
+ * ```
+ * <layout-page>
+ *   <layout-column>Second</layout-column>
+ *   <layout-column>Third</layout-column>
+ *   <layout-column left>First</layout-column>
+ * </layout-page>
+ * ```
+ */
+@Component({
+  selector: 'layout-column',
+  template: `
+    <ng-content></ng-content>
+  `,
+})
+export class LayoutColumnComponent {
+
+  @HostBinding('class.left') leftValue: boolean;
+
+  /**
+   * Move the column to the very left position in the layout.
+   * @param {boolean} val
+   */
+  @Input()
+  set left(val: boolean) {
+    this.leftValue = convertToBoolProperty(val);
+  }
+}
+
+/**
+ * Page header component.
+ * Located on top of the page above the layout columns and sidebars.
+ * Could be made `fixed` by setting the corresponding property. In the fixed mode the header becomes
+ * sticky to the top of the layout (to of the page).
+ *
+ * @styles
+ *
+ * header-font-family
+ * header-line-height
+ * header-fg
+ * header-bg
+ * header-height
+ * header-padding
+ * header-shadow
+ */
+@Component({
+  selector: 'layout-header',
+  template: `
+    <nav [class.fixed]="fixedValue">
+      <ng-content></ng-content>
+    </nav>
+  `,
+})
+export class LayoutHeaderComponent {
+
+  @HostBinding('class.fixed') fixedValue: boolean;
+
+  /**
+   * Makes the header sticky to the top of the layout.
+   * @param {boolean} val
+   */
+  @Input()
+  set fixed(val: boolean) {
+    this.fixedValue = convertToBoolProperty(val);
+  }
+}
+
+/**
+ * Page footer.
+ * Located under the layout content (specifically, under the columns).
+ * Could be made `fixed`, becoming sticky to the bottom of the view port (window).
+ *
+ * @styles
+ *
+ * footer-height
+ * footer-padding
+ * footer-fg
+ * footer-bg
+ * footer-separator
+ * footer-shadow
+ */
+@Component({
+  selector: 'layout-footer',
+  template: `
+    <nav [class.fixed]="fixedValue">
+      <ng-content></ng-content>
+    </nav>
+  `,
+})
+export class LayoutFooterComponent {
+
+  @HostBinding('class.fixed') fixedValue: boolean;
+
+  /**
+   * Makes the footer sticky to the bottom of the window.
+   * @param {boolean} val
+   */
+  @Input()
+  set fixed(val: boolean) {
+    this.fixedValue = convertToBoolProperty(val);
+  }
+
 }

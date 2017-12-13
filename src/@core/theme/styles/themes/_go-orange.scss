@@ -50,18 +50,18 @@ $theme: (
   ava-blue: #006EC6,
   ava-blue-dark: #004B7D,
 
-  radius: 0.2rem,
+  radius: 0.3rem,
 
   color-bg: #fff,
   color-bg-active: ava-gray-70,
-  color-fg: #a1a1e5,
-  color-fg-heading: ava-gray-80,
-  color-fg-text: ava-gray-80,
+  color-fg: #999,
+  color-fg-heading: #333,
+  color-fg-text: #666,
   color-fg-highlight: #00f9a6,
 
   color-gray: rgba(81, 113, 165, 0.15),
   color-neutral: transparent,
-  color-white: #ffffff,
+  color-white: #fff,
   color-disabled: rgba(255, 255, 255, 0.4),
 
   color-primary: ava-blue,
@@ -73,7 +73,7 @@ $theme: (
   link-color: ava-green,
   link-color-hover: ava-green-dark,
 
-  separator: #342e73,
+  separator: #f9f9f9,
   shadow: 0 2px 12px 0 rgba(234, 226, 222, 0.6),
 
   card-header-font-weight: font-weight-bolder,
@@ -89,7 +89,7 @@ $theme: (
   sidebar-fg: color-secondary,
   sidebar-bg: color-bg,
 
-  header-fg: color-white,
+  header-fg: #333,
   header-bg: color-bg,
 
   footer-fg: color-fg,

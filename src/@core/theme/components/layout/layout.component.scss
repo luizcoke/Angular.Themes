@@ -1,9 +1,3 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 :host {
 
   -webkit-font-smoothing: antialiased;
@@ -13,7 +7,7 @@
     flex-direction: column;
   }
 
-  /deep/ nb-layout-header {
+  /deep/ layout-header {
     display: block;
 
     nav {
@@ -71,7 +65,7 @@
         flex-direction: row;
         width: 100%;
 
-        /deep/ nb-layout-column {
+        /deep/ layout-column {
           order: 2;
           flex: 1 0;
           width:  0; // this might be a strange workaround
@@ -81,7 +75,7 @@
         }
       }
 
-      /deep/ nb-layout-footer {
+      /deep/ layout-footer {
         display: block;
         margin-top: auto;
 

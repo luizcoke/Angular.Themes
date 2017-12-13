@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'nb-forms-test',
   template: `
-    <nb-layout>
-      <nb-layout-column>
+    <layout-page>
+      <layout-column>
         <nb-card>
           <nb-card-body>
             <label class="form-control-label" for="default-form-control">Default Form Control</label>
@@ -34,8 +34,8 @@ import { Component } from '@angular/core';
             </div>
           </nb-card-body>
         </nb-card>
-      </nb-layout-column>
-    </nb-layout>
+      </layout-column>
+    </layout-page>
   `,
 })
 

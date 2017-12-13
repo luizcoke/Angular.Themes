@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'nb-card-test',
   template: `
-    <nb-layout>
-      <nb-layout-column>
+    <layout-page>
+      <layout-column>
         <nb-card *ngFor="let card of cards" [size]="card.size" [status]="card.status">
           <nb-card-header>
             <span>Header</span>
@@ -16,8 +16,8 @@ import { Component } from '@angular/core';
             <span>Footer</span>
           </nb-card-footer>
         </nb-card>
-      </nb-layout-column>
-    </nb-layout>
+      </layout-column>
+    </layout-page>
   `,
 })
 export class NbCardTestComponent {

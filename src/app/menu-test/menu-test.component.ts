@@ -77,8 +77,8 @@ export class NbMenuItem4Component { }
 @Component({
   selector: 'nb-menu-test',
   template: `
-    <nb-layout>
-      <nb-layout-column>
+    <layout-page>
+      <layout-column>
         <nb-card size="medium">
           <nb-card-body>
             <nb-menu tag="firstMenu" [items]="menuItems"></nb-menu>
@@ -87,8 +87,8 @@ export class NbMenuItem4Component { }
             <button class="btn btn-primary" id="homeBtn" (click)="navigateHome()">Home</button>
           </nb-card-body>
         </nb-card>
-      </nb-layout-column>
-    </nb-layout>
+      </layout-column>
+    </layout-page>
   `,
 })
 export class NbMenuTestComponent implements OnInit, OnDestroy {

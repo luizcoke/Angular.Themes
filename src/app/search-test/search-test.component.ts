@@ -4,12 +4,12 @@ import { NbSearchService } from '@avanade/theme';
 @Component({
   selector: 'nb-search-test',
   template: `
-    <nb-layout>
-      <nb-layout-header fixed>
+    <layout-page>
+      <layout-header fixed>
         <a class="navbar-brand" href="#">ngx-admin</a>
         <nb-search type="rotate-layout" tag="header-search"></nb-search>
-      </nb-layout-header>
-      <nb-layout-column>
+      </layout-header>
+      <layout-column>
         <nb-card>
           <nb-card-header>
             <span>Header</span>
@@ -54,8 +54,8 @@ import { NbSearchService } from '@avanade/theme';
             <span>Footer</span>
           </nb-card-footer>
         </nb-card>
-      </nb-layout-column>
-    </nb-layout>
+      </layout-column>
+    </layout-page>
   `,
 })
 export class NbSearchTestComponent implements OnInit {

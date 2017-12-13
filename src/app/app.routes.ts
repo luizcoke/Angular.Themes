@@ -38,7 +38,7 @@ import { NbCardTestComponent } from './card-test/card-test.component';
 export const routes: Routes = [
   {
     path: '',
-    component: NbCardTestComponent,
+    component: NbThemeChangeTestComponent,
   },
   {
     path: 'layout',
@@ -53,7 +53,7 @@ export const routes: Routes = [
     component: NbLayoutFooterTestComponent,
   },
   {
-    path: 'layout/change-theme',
+    path: 'layout/themes',
     component: NbThemeChangeTestComponent,
   },
   {

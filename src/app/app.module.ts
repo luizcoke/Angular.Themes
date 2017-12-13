@@ -10,7 +10,7 @@ import { routes } from './app.routes';
 import {
   NbActionsModule,
   NbCardModule,
-  NbLayoutModule,
+  LayoutModule,
   NbMenuItem,
   NbMenuModule,
   NbRouteTabsetModule,
@@ -102,7 +102,7 @@ const NB_TEST_COMPONENTS = [
     RouterModule.forRoot(routes, { useHash: true }),
     NbThemeModule.forRoot({ name: 'default' }),
     NbCardModule,
-    NbLayoutModule,
+    LayoutModule,
     NbMenuModule.forRoot(),
     NbMenuModule.forRoot(),
     NbRouteTabsetModule,
