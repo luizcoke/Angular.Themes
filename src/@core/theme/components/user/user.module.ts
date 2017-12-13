@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
-import { NbSharedModule } from '../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
 import {
   NbUserComponent,
 } from './user.component';
 
-const NB_USER_COMPONENTS = [
-  NbUserComponent,
+const USER_COMPONENTS = [
+  NbUserComponent
 ];
 
 @NgModule({
   imports: [
-    NbSharedModule,
+    SharedModule
   ],
   declarations: [
-    ...NB_USER_COMPONENTS,
+    ...USER_COMPONENTS
   ],
   exports: [
-    ...NB_USER_COMPONENTS,
-  ],
+    ...USER_COMPONENTS
+  ]
 })
 export class NbUserModule { }

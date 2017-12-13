@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbSharedModule } from '../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
 import {
   BoxComponent,
@@ -17,7 +17,7 @@ const BOX_COMPONENTS = [
 
 @NgModule({
   imports: [
-    NbSharedModule,
+    SharedModule,
   ],
   declarations: [
     ...BOX_COMPONENTS,

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbSharedModule } from '../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 import { NbActionComponent, NbActionsComponent } from './actions.component';
 
 const NB_ACTIONS_COMPONENTS = [
@@ -9,7 +9,7 @@ const NB_ACTIONS_COMPONENTS = [
 
 @NgModule({
   imports: [
-    NbSharedModule,
+    SharedModule,
   ],
   declarations: [
     ...NB_ACTIONS_COMPONENTS,

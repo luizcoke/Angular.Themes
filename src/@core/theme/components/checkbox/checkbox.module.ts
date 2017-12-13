@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { NbSharedModule } from '../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 import { NbCheckboxComponent } from './checkbox.component';
 
 @NgModule({
   imports: [
-    NbSharedModule,
+    SharedModule,
   ],
   declarations: [NbCheckboxComponent],
   exports: [NbCheckboxComponent],

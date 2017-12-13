@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
-import { NbSharedModule } from '../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
 import {
   SidebarComponent,
@@ -22,7 +22,7 @@ const SIDEBAR_PROVIDERS = [
 
 @NgModule({
   imports: [
-    NbSharedModule,
+    SharedModule,
   ],
   declarations: [
     ...SIDEBAR_COMPONENTS,

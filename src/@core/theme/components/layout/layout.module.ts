@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbSharedModule } from '../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
 import {
   LayoutPageComponent,
@@ -18,7 +18,7 @@ const LAYOUT_COMPONENTS = [
 
 @NgModule({
   imports: [
-    NbSharedModule,
+    SharedModule,
   ],
   declarations: [
     ...LAYOUT_COMPONENTS,

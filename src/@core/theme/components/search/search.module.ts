@@ -5,14 +5,14 @@
  */
 import { NgModule } from '@angular/core';
 
-import { NbSharedModule } from '../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 import { NbSearchComponent, NbSearchFieldComponent } from './search.component';
 import { NbSearchService } from './search.service';
 
 
 @NgModule({
   imports: [
-    NbSharedModule,
+    SharedModule,
   ],
   declarations: [
     NbSearchComponent,

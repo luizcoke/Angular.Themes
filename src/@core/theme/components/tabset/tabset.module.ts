@@ -1,29 +1,22 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
 
 import { NgModule } from '@angular/core';
-
-import { NbSharedModule } from '../shared/shared.module';
-
+import { SharedModule } from '../shared/shared.module';
 import { NbTabsetComponent, NbTabComponent } from './tabset.component';
 
-const NB_TABSET_COMPONENTS = [
+const TABSET_COMPONENTS = [
   NbTabsetComponent,
-  NbTabComponent,
+  NbTabComponent
 ];
 
 @NgModule({
   imports: [
-    NbSharedModule,
+    SharedModule
   ],
   declarations: [
-    ...NB_TABSET_COMPONENTS,
+    ...TABSET_COMPONENTS
   ],
   exports: [
-    ...NB_TABSET_COMPONENTS,
-  ],
+    ...TABSET_COMPONENTS
+  ]
 })
 export class NbTabsetModule { }
