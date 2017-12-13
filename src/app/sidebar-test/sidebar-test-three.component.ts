@@ -1,24 +1,18 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'nb-sidebar-test-three',
   styles: [
     `
-    :host /deep/ nb-layout-column {
+    :host /deep/ layout-column {
       background-color: #76ecff;
     }
     `,
   ],
   template: `
-    <nb-layout>
+    <layout-page>
 
-      <nb-layout-header></nb-layout-header>
+      <layout-header></layout-header>
 
       <nb-sidebar state="collapsed">
         Left
@@ -28,9 +22,9 @@ import { Component } from '@angular/core';
         Right
       </nb-sidebar>
 
-      <nb-layout-footer></nb-layout-footer>
+      <layout-footer></layout-footer>
 
-    </nb-layout>
+    </layout-page>
 `,
 })
 export class NbSidebarTestThreeComponent {

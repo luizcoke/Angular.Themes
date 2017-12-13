@@ -1,9 +1,3 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 import { Component } from '@angular/core';
 
 @Component({
@@ -16,14 +10,14 @@ import { Component } from '@angular/core';
     `,
   ],
   template: `
-    <nb-layout id="layout-fluid">
-      <nb-layout-header fixed>
+    <layout-page id="layout-fluid">
+      <layout-header fixed>
         <nb-user showInitials size="medium" name="Dmitry Nehaychik" title="Worker"
                   [menu]="contextMenu" (menuClick)="onMenuItemClick($event)"></nb-user>
-      </nb-layout-header>
+      </layout-header>
 
 
-      <nb-layout-column>
+      <layout-column>
         <div class="test-row">
           <nb-user inverse></nb-user>
         </div>
@@ -59,15 +53,15 @@ import { Component } from '@angular/core';
           <nb-user inverse showInitials size="medium" name="Dmitry Nehaychik" title="Worker"
                     [menu]="contextMenu" (menuClick)="onMenuItemClick($event)"></nb-user>
         </div>
-      </nb-layout-column>
-    </nb-layout>
+      </layout-column>
+    </layout-page>
   `,
 })
 export class NbUserTestComponent {
 
   contextMenu = [
     { title: 'Profile', link: 'some/link', icon: 'nb-person' },
-    { title: 'Billing', target: '_blank', url: 'http://akveo.com' },
+    { title: 'Billing', target: '_blank', url: 'http://app.com' },
     { title: 'Exit', key: 'exit' },
   ];
 

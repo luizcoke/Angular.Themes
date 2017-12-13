@@ -1,0 +1,161 @@
+@import '../core/functions';
+@import '../core/mixins';
+@import 'default';
+
+// default the base theme
+$theme: (
+
+  // Recommend color should be used in this order of priority:
+  //    1. Orange
+  //    2. Pink
+  //    3. Purple
+  //    4. Scarlet
+  //    5. Gold
+  //    6. Green
+  //    7. Aqua
+  //    8. Blue
+
+  // Sequence sets of similar colors to group different types of data, for example:
+  //    • Oranges with Yellows
+  //    • Greens with Blues
+  //    • Pinks with Purples
+
+
+  // primary palette
+  ava-orange: #FF5800,
+  ava-orange-dark: #DC4600,
+
+  ava-gray-10: #E5E5E5,
+  ava-gray-20: #CCCCCC,
+  ava-gray-30: #B2B2B2,
+  ava-gray-40: #999999,
+  ava-gray-50: #7F7F7F,
+  ava-gray-60: #666666,
+  ava-gray-70: #4C4C4C,
+  ava-gray-80: #333333,
+
+  //secondary palette
+  ava-pink: #CE056A,
+  ava-pink-dark: #A50646,
+  ava-purple: #890078,
+  ava-purple-dark: #5A1455,
+  ava-scarlet: #C80000,
+  ava-scarlet-dark: #9E120E,
+  ava-gold: #FFB414,
+  ava-gold-dark: #E6A61C,
+  ava-green: #4B912A,
+  ava-green-dark: #05732A,
+  ava-aqua: #008C95,
+  ava-aqua-dark: #005F62,
+  ava-blue: #006EC6,
+  ava-blue-dark: #004B7D,
+
+  radius: 0.3rem,
+
+  color-bg: #fff,
+  color-bg-active: ava-gray-70,
+  color-fg: #999,
+  color-fg-heading: #333,
+  color-fg-text: #666,
+  color-fg-highlight: #00f9a6,
+
+  color-gray: rgba(81, 113, 165, 0.15),
+  color-neutral: transparent,
+  color-white: #fff,
+  color-disabled: rgba(255, 255, 255, 0.4),
+
+  color-primary: ava-blue,
+  color-success: ava-green,
+  color-info: ava-blue,
+  color-warning: ava-gold,
+  color-danger: ava-scarlet,
+
+  link-color: ava-green,
+  link-color-hover: ava-green-dark,
+
+  separator: #f9f9f9,
+  shadow: 0 2px 12px 0 rgba(234, 226, 222, 0.6),
+
+  box-header-font-weight: font-weight-bolder,
+
+  layout-bg: #f9f9f9,
+
+  scrollbar-fg: #554db3,
+  scrollbar-bg: #332e73,
+
+  radial-gradient: radial-gradient(circle at 50% 50%, #423f8c, #302c6e),
+  linear-gradient: linear-gradient(to right, #171749, #413789),
+
+  sidebar-fg: color-secondary,
+  sidebar-bg: color-bg,
+
+  header-fg: #333,
+  header-bg: color-bg,
+
+  footer-fg: color-fg,
+  footer-bg: color-bg,
+
+  actions-fg: color-fg,
+  actions-bg: color-bg,
+
+  user-fg: color-bg,
+  user-bg: color-fg,
+  user-fg-highlight: color-fg-highlight,
+  user-menu-active-bg: color-primary,
+  user-menu-border: color-primary,
+
+  footer-height: header-height,
+
+  sidebar-width: 16.25rem,
+  sidebar-width-compact: 3.45rem,
+
+  menu-fg: color-fg,
+  menu-bg: color-bg,
+  menu-active-fg: color-white,
+  menu-group-fg: color-white,
+  menu-font-weight: font-weight-normal,
+  menu-active-font-weight: font-weight-bolder,
+  menu-submenu-bg: layout-bg,
+  menu-submenu-fg: color-fg,
+  menu-submenu-active-fg: color-fg-heading,
+  menu-submenu-active-bg: rgba(0, 255, 170, 0.25),
+  menu-submenu-active-border-color: color-fg-highlight,
+  menu-submenu-active-shadow: 0 2px 12px 0 rgba(0, 255, 170, 0.25),
+  menu-item-padding: 0.25rem 1rem 0.25rem 0.75rem,
+  menu-item-separator: transparent,
+
+  btn-hero-shadow: 0 4px 10px 0 rgba(33, 7, 77, 0.5),
+  btn-hero-text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3),
+  btn-hero-bevel-size: 0 3px 0 0,
+  btn-hero-glow-size: 0 2px 8px 0,
+  btn-secondary-border: color-primary,
+  btn-outline-fg: color-fg-heading,
+  btn-outline-hover-fg: color-fg-heading,
+  btn-group-bg: #373273,
+  btn-group-separator: #312c66,
+
+  form-control-bg: #37317a,
+  form-control-focus-bg: separator,
+  form-control-border-color: separator,
+  form-control-selected-border-color: color-primary,
+
+  checkbox-border-color: color-fg,
+  checkbox-selected-border-color: color-success,
+  radio-fg: color-fg-heading,
+
+  search-bg: linear-gradient(to right, #171749, #413789),
+
+  smart-table-header-font-weight: font-weight-normal,
+  smart-table-header-bg: color-bg-active,
+  smart-table-bg-even: #3a347a,
+  smart-table-bg-active: color-bg-active,
+
+  smart-table-paging-border-color: color-primary,
+  smart-table-paging-border-width: 2px,
+  smart-table-paging-fg-active: color-fg-heading,
+  smart-table-paging-bg-active: color-primary,
+  smart-table-paging-hover: rgba(0, 0, 0, 0.2),
+);
+
+// register the theme
+$nb-themes: nb-register-theme($theme, go-orange, default);

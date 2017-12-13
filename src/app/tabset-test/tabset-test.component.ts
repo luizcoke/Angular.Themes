@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'nb-tabset-test',
   template: `
-    <nb-layout>
-      <nb-layout-column>
+    <layout-page>
+      <layout-column>
         <nb-tabset>
           <nb-tab tabTitle="Tab #1">
             <span>Content #1</span>
@@ -67,8 +67,8 @@ import { Router } from '@angular/router';
             <span>Content #3</span>
           </nb-tab>
         </nb-tabset>
-      </nb-layout-column>
-    </nb-layout>
+      </layout-column>
+    </layout-page>
   `,
 })
 export class NbTabsetTestComponent {

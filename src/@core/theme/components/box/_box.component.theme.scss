@@ -1,0 +1,123 @@
+
+@mixin box-header() {
+  padding: nb-theme(box-padding);
+  border-bottom: 1px solid nb-theme(box-separator);
+  border-top-left-radius: nb-theme(box-border-radius);
+  border-top-right-radius: nb-theme(box-border-radius);
+  color: nb-theme(box-header-fg-heading);
+
+  font-family: nb-theme(box-header-font-family);
+  font-size: nb-theme(box-header-font-size);
+  font-weight: nb-theme(box-header-font-weight);
+
+  @include nb-headings();
+}
+
+@mixin box-theme() {
+  box {
+    font-size: nb-theme(box-font-size);
+    line-height: nb-theme(box-line-height);
+
+    background: nb-theme(box-bg);
+    color: nb-theme(box-fg-text);
+    // TODO: move box margin style to layout
+    margin-bottom: nb-theme(box-margin);
+    border-radius: nb-theme(box-border-radius);
+    box-shadow: nb-theme(box-shadow);
+    font-weight: nb-theme(box-font-weight);
+
+    @include nb-scrollbars(
+        nb-theme(scrollbar-fg),
+        nb-theme(scrollbar-bg),
+        nb-theme(scrollbar-width));
+
+    &.xxsmall-box {
+      height: nb-theme(box-height-xxsmall);
+    }
+    &.xsmall-box {
+      height: nb-theme(box-height-xsmall);
+    }
+    &.small-box {
+      height: nb-theme(box-height-small);
+    }
+    &.medium-box {
+      height: nb-theme(box-height-medium);
+    }
+    &.large-box {
+      height: nb-theme(box-height-large);
+    }
+    &.xlarge-box {
+      height: nb-theme(box-height-xlarge);
+    }
+    &.xxlarge-box {
+      height: nb-theme(box-height-xxlarge);
+    }
+
+    &.active-box {
+      box-header {
+        background-color: nb-theme(box-header-active-bg);
+        border-bottom-color: nb-theme(box-header-active-bg);
+        color: nb-theme(box-header-active-fg);
+      }
+    }
+    &.disabled-box {
+      box-header {
+        background-color: nb-theme(box-header-disabled-bg);
+        border-bottom-color: nb-theme(box-header-disabled-bg);
+      }
+    }
+    &.primary-box {
+      box-header {
+        background-color: nb-theme(box-header-primary-bg);
+        border-bottom-color: nb-theme(box-header-primary-bg);
+      }
+    }
+    &.info-box {
+      box-header {
+        background-color: nb-theme(box-header-info-bg);
+        border-bottom-color: nb-theme(box-header-info-bg);
+      }
+    }
+    &.success-box {
+      box-header {
+        background-color: nb-theme(box-header-success-bg);
+        border-bottom-color: nb-theme(box-header-success-bg);
+      }
+    }
+    &.warning-box {
+      box-header {
+        background-color: nb-theme(box-header-warning-bg);
+        border-bottom-color: nb-theme(box-header-warning-bg);
+      }
+    }
+    &.danger-box {
+      box-header {
+        background-color: nb-theme(box-header-danger-bg);
+        border-bottom-color: nb-theme(box-header-danger-bg);
+      }
+    }
+  }
+
+  box-body {
+    flex: 1;
+    -ms-flex: 1 1 auto;
+    overflow: auto;
+    padding: nb-theme(box-padding);
+    position: relative;
+    @include nb-scrollbars(
+        nb-theme(scrollbar-fg),
+        nb-theme(scrollbar-bg),
+        nb-theme(scrollbar-width));
+  }
+
+  box-footer {
+    padding: nb-theme(box-padding);
+    border-top: 1px solid nb-theme(box-separator);
+    border-bottom-left-radius: nb-theme(box-border-radius);
+    border-bottom-right-radius: nb-theme(box-border-radius);
+  }
+
+  box-header {
+    @include box-header();
+  }
+}

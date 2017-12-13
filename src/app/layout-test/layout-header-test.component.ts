@@ -1,19 +1,13 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'nb-layout-header-test',
   template: `
-    <nb-layout>
-      <nb-layout-header fixed>
-        <a class="navbar-brand" href="#">ngx-admin</a>
-      </nb-layout-header>
-    </nb-layout>
+    <layout-page>
+      <layout-header fixed>
+        <a class="navbar-brand" href="#">App</a>
+      </layout-header>
+    </layout-page>
 `,
 })
 export class NbLayoutHeaderTestComponent {

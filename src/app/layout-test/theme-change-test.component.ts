@@ -1,48 +1,44 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 import { Component } from '@angular/core';
 import { NbThemeService } from '@avanade/theme';
 
 @Component({
   selector: 'nb-change-theme-test',
   template: `
-    <nb-layout>
-      <nb-layout-header fixed>
-        <a href="#" class="navbar-brand">Akveo</a>
-        <button id="change-theme" (click)="changeTheme()">Change Theme</button>
-      </nb-layout-header>
-
+    <layout-page>
+      <layout-header fixed>
+        <a href="#" class="navbar-brand">App</a>
+      </layout-header>
       <nb-sidebar right>
-          Sidebar content
+          <p>Sidebar content</p>
+          <select id="change-theme" [(ngModel)]="currentTheme" (ngModelChange)="onChange($event)">
+            <option *ngFor="let t of themes" [ngValue]="t">{{t}}</option>
+          </select>
       </nb-sidebar>
 
-      <nb-layout-column>
-        <nb-card>
-          <nb-card-header>Hello</nb-card-header>
-          <nb-card-body>
-            Some Test content
-          </nb-card-body>
-        </nb-card>
-      </nb-layout-column>
+      <layout-column>
+        <box>
+          <box-header>Main content</box-header>
+          <box-body>
+            Content
+          </box-body>
+        </box>
+      </layout-column>
 
-
-      <nb-layout-footer fixed>
-        &copy; Akveo 2017
-      </nb-layout-footer>
-    </nb-layout>
+      <layout-footer fixed>
+        &copy; footer 2018
+      </layout-footer>
+    </layout-page>
 `,
 })
 export class NbThemeChangeTestComponent {
   currentTheme = 'default';
+  themes = ['default', 'cosmic', 'go-orange'];
 
-  constructor(private themeService: NbThemeService) {}
+  constructor(private themeService: NbThemeService) { }
 
-  changeTheme() {
-    this.currentTheme = this.currentTheme === 'default' ? 'blue' : 'default';
+  onChange(value: string) {
+
+    this.currentTheme = value;
     this.themeService.changeTheme(this.currentTheme);
   }
 }

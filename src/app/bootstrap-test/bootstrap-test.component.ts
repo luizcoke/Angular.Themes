@@ -12,8 +12,8 @@ import { Component } from '@angular/core';
     ``,
   ],
   template: `
-    <nb-layout>
-      <nb-layout-column>
+    <layout-page>
+      <layout-column>
         <h2>Buttons</h2>
         <div>
           <button class="btn btn-primary">Primary</button>
@@ -55,8 +55,8 @@ import { Component } from '@angular/core';
             </tr>
           </tbody>
         </table>
-      </nb-layout-column>
-    </nb-layout>
+      </layout-column>
+    </layout-page>
   `,
 })
 export class NbBootstrapTestComponent {

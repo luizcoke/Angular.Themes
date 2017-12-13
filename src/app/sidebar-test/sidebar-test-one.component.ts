@@ -1,22 +1,16 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'nb-sidebar-test-one',
   styles: [
     `
-    :host /deep/ nb-layout-column {
+    :host /deep/ layout-column {
       background-color: #76ecff;
     }
     `,
   ],
   template: `
-    <nb-layout>
+    <layout-page>
       <nb-sidebar>
         Left
       </nb-sidebar>
@@ -24,7 +18,7 @@ import { Component } from '@angular/core';
       <nb-sidebar right>
         Right
       </nb-sidebar>
-    </nb-layout>
+    </layout-page>
 `,
 })
 export class NbSidebarTestOneComponent {

@@ -8,9 +8,9 @@ import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 
 import {
+  LayoutModule,
+  BoxModule,
   NbActionsModule,
-  NbCardModule,
-  NbLayoutModule,
   NbMenuItem,
   NbMenuModule,
   NbRouteTabsetModule,
@@ -59,7 +59,7 @@ import { NbFormsTestComponent } from './forms-test/forms-test.component';
 
 import { NbCardTestComponent } from './card-test/card-test.component';
 
-const NB_TEST_COMPONENTS = [
+const TEST_COMPONENTS = [
   AppComponent,
   NbCardTestComponent,
   NbLayoutTestComponent,
@@ -101,8 +101,8 @@ const NB_TEST_COMPONENTS = [
     HttpModule,
     RouterModule.forRoot(routes, { useHash: true }),
     NbThemeModule.forRoot({ name: 'default' }),
-    NbCardModule,
-    NbLayoutModule,
+    LayoutModule,
+    BoxModule,
     NbMenuModule.forRoot(),
     NbMenuModule.forRoot(),
     NbRouteTabsetModule,
@@ -113,7 +113,7 @@ const NB_TEST_COMPONENTS = [
     NbActionsModule,
   ],
   declarations: [
-    ...NB_TEST_COMPONENTS,
+    TEST_COMPONENTS
   ],
   entryComponents: [
     NbDynamicToAddComponent,

@@ -4,58 +4,58 @@ import { NbSearchService } from '@avanade/theme';
 @Component({
   selector: 'nb-search-test',
   template: `
-    <nb-layout>
-      <nb-layout-header fixed>
+    <layout-page>
+      <layout-header fixed>
         <a class="navbar-brand" href="#">ngx-admin</a>
         <nb-search type="rotate-layout" tag="header-search"></nb-search>
-      </nb-layout-header>
-      <nb-layout-column>
-        <nb-card>
-          <nb-card-header>
+      </layout-header>
+      <layout-column>
+        <box>
+          <box-header>
             <span>Header</span>
-          </nb-card-header>
-          <nb-card-body>
+          </box-header>
+          <box-body>
             <span>Body</span>
-          </nb-card-body>
-          <nb-card-footer>
+          </box-body>
+          <box-footer>
             <span>Footer</span>
-          </nb-card-footer>
-        </nb-card>
-        <nb-card size="small">
-          <nb-card-header>
+          </box-footer>
+        </box>
+        <box size="small">
+          <box-header>
             <span>Header</span>
-          </nb-card-header>
-          <nb-card-body>
+          </box-header>
+          <box-body>
             <span>Body</span>
-          </nb-card-body>
-          <nb-card-footer>
+          </box-body>
+          <box-footer>
             <span>Footer</span>
-          </nb-card-footer>
-        </nb-card>
-        <nb-card size="medium">
-          <nb-card-header>
+          </box-footer>
+        </box>
+        <box size="medium">
+          <box-header>
             <span>Header</span>
-          </nb-card-header>
-          <nb-card-body>
+          </box-header>
+          <box-body>
             <span>Body</span>
-          </nb-card-body>
-          <nb-card-footer>
+          </box-body>
+          <box-footer>
             <span>Footer</span>
-          </nb-card-footer>
-        </nb-card>
-        <nb-card size="large">
-          <nb-card-header>
+          </box-footer>
+        </box>
+        <box size="large">
+          <box-header>
             <span>Header</span>
-          </nb-card-header>
-          <nb-card-body>
+          </box-header>
+          <box-body>
             <span>Body</span>
-          </nb-card-body>
-          <nb-card-footer>
+          </box-body>
+          <box-footer>
             <span>Footer</span>
-          </nb-card-footer>
-        </nb-card>
-      </nb-layout-column>
-    </nb-layout>
+          </box-footer>
+        </box>
+      </layout-column>
+    </layout-page>
   `,
 })
 export class NbSearchTestComponent implements OnInit {

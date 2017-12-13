@@ -1,9 +1,3 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import 'rxjs/add/operator/takeWhile';
 import { NbMenuService, NbMenuItem } from '@avanade/theme';
@@ -83,18 +77,18 @@ export class NbMenuItem4Component { }
 @Component({
   selector: 'nb-menu-test',
   template: `
-    <nb-layout>
-      <nb-layout-column>
-        <nb-card size="medium">
-          <nb-card-body>
+    <layout-page>
+      <layout-column>
+        <box size="medium">
+          <box-body>
             <nb-menu tag="firstMenu" [items]="menuItems"></nb-menu>
             <router-outlet></router-outlet>
             <button class="btn btn-primary" id="addBtn" (click)="addMenuItem()">Add</button>
             <button class="btn btn-primary" id="homeBtn" (click)="navigateHome()">Home</button>
-          </nb-card-body>
-        </nb-card>
-      </nb-layout-column>
-    </nb-layout>
+          </box-body>
+        </box>
+      </layout-column>
+    </layout-page>
   `,
 })
 export class NbMenuTestComponent implements OnInit, OnDestroy {

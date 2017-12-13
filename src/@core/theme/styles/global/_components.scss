@@ -1,0 +1,26 @@
+@import '../../components/layout/layout.component.theme';
+@import '../../components/sidebar/sidebar.component.theme';
+@import '../../components/box/box.component.theme';
+@import '../../components/tabset/tabset.component.theme';
+@import '../../components/route-tabset/route-tabset.component.theme';
+@import '../../components/menu/menu.component.theme';
+@import '../../components/user/user.component.theme';
+@import '../../components/actions/actions.component.theme';
+@import '../../components/search/search.component.theme';
+@import '../../components/checkbox/checkbox.component.theme';
+
+
+@mixin nb-theme-components() {
+
+  @include layout-page-theme();
+  @include box-theme();
+  
+  @include nb-sidebar-theme();
+  @include nb-tabset-theme();
+  @include nb-route-tabset-theme();
+  @include nb-menu-theme();
+  @include nb-user-theme();
+  @include nb-actions-theme();
+  @include nb-search-theme();
+  @include nb-checkbox-theme();
+}

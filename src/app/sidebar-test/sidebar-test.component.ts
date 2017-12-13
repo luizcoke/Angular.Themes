@@ -5,19 +5,19 @@ import { NbSidebarService } from '@avanade/theme';
   selector: 'nb-sidebar-test',
   styles: [
     `
-    :host /deep/ nb-layout-column {
+    :host /deep/ layout-column {
       background-color: #76ecff;
     }
     `,
   ],
   template: `
-    <nb-layout>
-      <nb-layout-header fixed>
-        <a href="#" class="navbar-brand">Akveo</a>
+    <layout-page>
+      <layout-header fixed>
+        <a href="#" class="navbar-brand">App</a>
 
         <button id="collapse-left" (click)="collapseLeft()">Collapse Left</button>
         <button id="collapse-right" (click)="collapseRight()">Collapse Right</button>
-      </nb-layout-header>
+      </layout-header>
 
       <nb-sidebar state="collapsed" fixed tag="left">
       </nb-sidebar>
@@ -27,21 +27,20 @@ import { NbSidebarService } from '@avanade/theme';
         {{ content }}
       </nb-sidebar>
 
-      <nb-layout-column left>
+      <layout-column left>
        {{ content }}
-      </nb-layout-column>
-      <nb-layout-column>
+      </layout-column>
+      <layout-column>
        {{ content }}
-      </nb-layout-column>
-      <nb-layout-column>
+      </layout-column>
+      <layout-column>
        {{ content }}
-      </nb-layout-column>
+      </layout-column>
 
-
-      <nb-layout-footer fixed>
-        &copy; Akveo 2017
-      </nb-layout-footer>
-    </nb-layout>
+      <layout-footer fixed>
+        &copy; footer 2017
+      </layout-footer>
+    </layout-page>
 `,
 })
 export class NbSidebarTestComponent implements OnInit {

@@ -1,0 +1,32 @@
+:host {
+
+  display: flex;
+  align-items: center;
+
+  /deep/ nb-action {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    &:first-child {
+      border-left: none!important;
+    }
+
+    i.control-icon {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &.disabled {
+      & > * {
+        opacity: 0.5;
+      }
+      cursor: not-allowed;
+
+      a, i {
+        cursor: not-allowed!important;
+      }
+    }
+  }
+}
